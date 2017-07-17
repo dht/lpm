@@ -1,6 +1,6 @@
 # LPM
 
-LPM stands for Layout Package Manager. 
+LPM stands for Layout Package Manager (it is indeed an acronym). 
 The Core of the project is the Layout-JSON format, a markup format to describe cross-language layouts:
  
  See the [Layout-JSON specification](https://github.com/dht/lpm/blob/master/specifications/element.md)
