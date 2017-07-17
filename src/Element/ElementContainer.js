@@ -27,14 +27,8 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = () => {
     return {
-        onElementClick: (id, parent_id, element_type, ev) => {
-            console.log(`element ${id} clicked`);
-        },
-        onDoubleClick: (id, parent_id, element_type, ev) => {
-            console.log(`element ${id} double clicked`);
-        }
     }
 }
 

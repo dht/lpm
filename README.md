@@ -67,6 +67,8 @@ Here is a quick example to get you started:
     <Element
         statePath={ 'elements/elements' }
         elementId={ 1 }
+        onElementClick={(element_id, parent_id, element_type, ev)=>{}}
+        onElementDblClick={(element_id, parent_id, element_type, ev)=>{}}
     />
 </div>
 ```
@@ -102,7 +104,7 @@ npm test
 ### Firbase integration ideas
 With [Firebase](https://firebase.google.com/)'s socket-based service, LPM project may explore the following ideas:
   - Live collaboration: see others as they build layouts, build layouts in teams
-  - Live loading: layouts loaded in real time by the user's client
+  - Real-time UI: layouts loaded in real time by the user's client. A modal component for instance which takes a modal-identifier and loads a modal from Firebase. 
   - Tutorials (with redux): replay a process of layout building, learn how it was done
 
 ## License

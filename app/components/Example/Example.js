@@ -13,6 +13,9 @@ export default class Example extends React.Component {
         this.state = {
             input: Mock
         }
+
+        this.elementClick = this.elementClick.bind(this);
+        this.elementDoubleClick = this.elementDoubleClick.bind(this);
     }
 
     componentDidMount() {
@@ -27,6 +30,14 @@ export default class Example extends React.Component {
         })
     }
 
+    elementClick(id, parent_id, element_type, ev) {
+        console.log('click: id, parent_id, element_type, ev -> ', id, parent_id, element_type, ev);
+    }
+
+    elementDoubleClick(id, parent_id, element_type, ev) {
+        console.log('doubleClick: id, parent_id, element_type, ev -> ', id, parent_id, element_type, ev);
+    }
+
     render() {
         const {layoutJSON, html, scss} = this.state;
 
@@ -37,7 +48,10 @@ export default class Example extends React.Component {
                         <textarea rows="30" cols="30" value={layoutJSON}/>
                     </div>
                     <div className="col">
-                        <Element id={1} statePath="elements/elements"/>
+                        <Element id={1} statePath="elements/elements"
+                                 onElementClick={this.elementClick}
+                                 onElementDblClick={this.elementDoubleClick}
+                        />
                     </div>
                 </div>
                 <div className="row">
