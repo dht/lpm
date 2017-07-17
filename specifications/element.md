@@ -2,8 +2,8 @@
  
 ## Structure
 
- ```json
- {
+ ```js
+ let structure = {
    "2": {
      "id": 2,                     // unique id
      "elementType": "TEXT",       // VIEW, IMAGE, TEXT, PLACEHOLDER
@@ -31,7 +31,7 @@
        }     
      }
    },
-   "2" : { // next element...
+   "3" : { // next element...
    }
  }
  
@@ -39,8 +39,8 @@
  
  ## Style
  //TODO: add all css properties
- ```json
-  {
+ ```js
+  let style = {
     "backgroundColor": "#fff",   // HEX, rgb or rgba
     "color": "#00ff00",          // HEX, rgb or rgba 
   }

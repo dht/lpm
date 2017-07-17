@@ -2,8 +2,8 @@
  
 ## Structure
 
- ```json
-{
+ ```js
+let structure = {
   "identifier": "com.github.titlebar",   // unique reverse DNS
   "workingCopy" : {                      // state object
      "A1" : {"id": 1},                   // element object 
