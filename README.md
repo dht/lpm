@@ -64,9 +64,8 @@ Here is a quick example to get you started:
 **Simple**
 ```jsx 
 <div style={{width: '400px',position: 'fixed',top: 0,left: 0,marginLeft: '60px',zIndex: 999,backgroundColor: 'white',boxShadow: '0 0 5px rgba(0,0,0,0.1)',borderRadius: '1px'}}>
-    <Element
+    <Element id={ 1 }
         statePath={ 'elements/elements' }
-        elementId={ 1 }
         onElementClick={(element_id, parent_id, element_type, ev)=>{}}
         onElementDblClick={(element_id, parent_id, element_type, ev)=>{}}
     />
