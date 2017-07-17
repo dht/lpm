@@ -21,7 +21,7 @@ To improve the process of developing new layouts by borrowing successful code pr
 ### Current projects:
 
 #### Core
-- [lpm](https://github.com/dht/lpm) Layout-JSON specification, Element component
+- [lpm](https://github.com/dht/lpm) Layout-JSON specification, Element component, transpilers
 
 #### Components
 - [movable-canvas](https://github.com/dht/movable-canvas) a ReactJS container with pan and zoom
@@ -31,15 +31,11 @@ To improve the process of developing new layouts by borrowing successful code pr
 #### Services
 - [rnbin](https://github.com/dht/rnbin) collaborative gists for React Native
 
-
 ### Future projects:
 - [lpm-cli](https://github.com/dht/lpm-cli) install packages from terminal
 - [jupiter](https://github.com/dht/jupiter) visual artboards for large projects
 - [htmlbin](https://github.com/dht/htmlbin) collaborative gists for HTML/SASS
 - [sketch-lpm](https://github.com/dht/sketch-lpm) Sketch plugin to export layouts from sketch
-
-
-
 
 
 ## Element Component
@@ -106,4 +102,4 @@ With [Firebase](https://firebase.google.com/)'s socket-based service, LPM projec
 
 ## License
 This project is licensed under the terms of the
-[MIT license](https://github.com/quickstudio/flex-editor/blob/master/LICENSE)
+[MIT license](https://github.com/dht/lpm/blob/master/LICENSE)
