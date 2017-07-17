@@ -13,13 +13,13 @@ This repository contains:
 ## Incentive
 
 To improve the process of developing new layouts by borrowing successful code practices:
-- Package management: unique layout packages with versioning and dependencies
+- Package management: install layout packages, publish new layouts
 - Transpilers: transform Layout-JSON to other popular formats
 - Tools: online editors, gists , import/export plugins (for Sketch,  Webstorm, etc.)
 
 ## Specifications
-- Markup: support responsive layouts, variables, placeholders [Layout-JSON specification](https://github.com/dht/lpm/blob/master/specifications/element.md) 
 - Packages: support unique identifiers, simple versioning, description [package specification](https://github.com/dht/lpm/blob/master/specifications/package.md)
+- Markup: support responsive layouts, variables, placeholders [Layout-JSON specification](https://github.com/dht/lpm/blob/master/specifications/element.md) 
 - Transpilers: to HTML / SASS, ReactJS and React Native 
 
 ## Repositories
