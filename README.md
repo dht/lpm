@@ -1,9 +1,14 @@
 # LPM
 
-This is the LPM project repository. LPM stands for Layout Package Manager. 
+LPM stands for Layout Package Manager. 
 The Core of the project is the Layout-JSON format, a markup format to describe cross-language layouts:
  
-- See the [Layout-JSON specification](https://github.com/dht/lpm/blob/master/specifications/element.md)
+ See the [Layout-JSON specification](https://github.com/dht/lpm/blob/master/specifications/element.md)
+
+This repository contains:
+ - Element component for ReactJS -  renders the Layout-JSON markup
+ - Transpilers: transform Layout-JSON to HTML/SASS, ReactJS, React Native
+ - Information: format specifications, links to the project's repositories
  
 ## Incentive
 
