@@ -34,12 +34,14 @@ To improve the process of developing new layouts by borrowing successful code pr
 - [movable-canvas](https://github.com/dht/movable-canvas) a ReactJS container with pan and zoom
 
 #### Services
-- rnbin: collaborative gists for React Native
-
+currently empty
+ 
 ### Future projects:
+- lpmjs: Package Manager Server [lpmjs.com]()
 - lpm-cli: install packages from terminal
+- rnbin: collaborative gists for React Native [rnbin.com]()
+- htmlbin: collaborative gists for HTML/SASS [htmlbin.com]()
 - jupiter: visual artboards for large projects
-- htmlbin: collaborative gists for HTML/SASS
 - sketch-lpm: Sketch plugin to export layouts from sketch
 
 
