@@ -1,5 +1,5 @@
 {
-  "name": "LPM",
+  "name": "lpm-core",
   "version": "0.1.1",
   "description": "Layout Package Manager Project",
   "main": "index.js",
