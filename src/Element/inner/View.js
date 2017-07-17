@@ -1,13 +1,11 @@
 import React from 'react';
-import ElementContainer from '../ElementContainer';
 import Base from './Base';
 
 const View = (props) => {
-    const {childIds = [], content, statePath} = props,
+    const {content} = props,
         containerStyle = {...styleView, backgroundImage: `url(${content})`}
 
     return <Base {...props} containerStyle={containerStyle}>
-        {childIds.map(childId => <ElementContainer key={childId} id={childId} statePath={statePath} />)}
     </Base>
 }
 

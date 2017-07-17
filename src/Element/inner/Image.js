@@ -1,9 +1,8 @@
 import React from 'react';
-import ElementContainer from '../ElementContainer';
 import Base from './Base';
 
 const Image = (props) => {
-    const {childIds = [], content, statePath} = props,
+    const {content} = props,
         containerStyle = {...styleView};
 
     if (content) {
@@ -11,7 +10,6 @@ const Image = (props) => {
     }
 
     return <Base {...props} containerStyle={containerStyle}>
-        {childIds.map(childId => <ElementContainer key={childId} id={childId} statePath={statePath} />)}
     </Base>
 }
 
