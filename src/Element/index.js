@@ -1,1 +1,1 @@
-export default from '../../app/components/Example/ElementContainer';
+export default from './ElementContainer';
