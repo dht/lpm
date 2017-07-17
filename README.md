@@ -29,18 +29,18 @@ To improve the process of developing new layouts by borrowing successful code pr
 - [lpm](https://github.com/dht/lpm) Layout-JSON specification, Element component, transpilers
 
 #### Components
-- [movable-canvas](https://github.com/dht/movable-canvas) a ReactJS container with pan and zoom
 - [style-panel](https://github.com/dht/style-panel) easy CSS editing for developers (keyboard based)
 - [flex-editor](https://github.com/dht/flex-editor) layout WYSIWYG editor in ReactJS
+- [movable-canvas](https://github.com/dht/movable-canvas) a ReactJS container with pan and zoom
 
 #### Services
-- [rnbin](https://github.com/dht/rnbin) collaborative gists for React Native
+- rnbin: collaborative gists for React Native
 
 ### Future projects:
-- [lpm-cli](https://github.com/dht/lpm-cli) install packages from terminal
-- [jupiter](https://github.com/dht/jupiter) visual artboards for large projects
-- [htmlbin](https://github.com/dht/htmlbin) collaborative gists for HTML/SASS
-- [sketch-lpm](https://github.com/dht/sketch-lpm) Sketch plugin to export layouts from sketch
+- lpm-cli: install packages from terminal
+- jupiter: visual artboards for large projects
+- htmlbin: collaborative gists for HTML/SASS
+- sketch-lpm: Sketch plugin to export layouts from sketch
 
 
 ## Element Component
