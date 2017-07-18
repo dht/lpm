@@ -9,6 +9,7 @@ This repository contains:
  - Element component for ReactJS -  renders the Layout-JSON markup
  - Transpilers: transform Layout-JSON to HTML/SASS, ReactJS, React Native
  - Information: format specifications, links to the project's repositories
+ - A [tool](https://dht.github.io/lpm/#/css) for transforming simple CSS rules to React style
  
 ## Incentive
 

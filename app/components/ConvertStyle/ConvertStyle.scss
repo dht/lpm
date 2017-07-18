@@ -1,0 +1,10 @@
+.ConvertStyle-container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+
+  textarea {
+    flex:1;
+    font-size:30px;
+  }
+}
