@@ -25,8 +25,8 @@ export default class ConvertStyle extends React.Component {
 
         return (
             <div className="ConvertStyle-container">
-                <textarea rows="30" cols="30" onChange={this.onChange} />
-                <textarea ref={(c) => this.textarea = c} rows="30" cols="30" />
+                <textarea placeholder="type or paste css (single selector)" rows="30" cols="30" onChange={this.onChange} />
+                <textarea placeholder="get React style" ref={(c) => this.textarea = c} rows="30" cols="30" />
             </div>
         );
     }
