@@ -32,7 +32,7 @@ To improve the process of developing new layouts by borrowing successful code pr
 #### Components
 - [style-panel](https://github.com/dht/style-panel) easy CSS editing for developers (keyboard based)
 - [flex-editor](https://github.com/dht/flex-editor) layout WYSIWYG editor in ReactJS
-- [movable-canvas](https://github.com/dht/movable-canvas) a ReactJS container with pan and zoom
+- [infinite-surface](https://github.com/dht/infinite-surface) a ReactJS container with pan and zoom
 
 #### Services
 currently empty
