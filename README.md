@@ -109,6 +109,8 @@ With [Firebase](https://firebase.google.com/)'s socket-based service, LPM projec
   - Real-time UI: layouts loaded in real time by the user's client. A modal component for instance which takes a modal-identifier and loads a modal from Firebase. 
   - Tutorials (with redux): replay a process of layout building, learn how it was done
 
+We will soon try to build a dashboard with Real-time UI and composite layouts.
+
 ## License
 This project is licensed under the terms of the
 [MIT license](https://github.com/dht/lpm/blob/master/LICENSE)
