@@ -9,7 +9,6 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import App from './components/AppContainer'
 import Example from './components/Example/Example'
-import ConvertStyle from './components/ConvertStyle/ConvertStyle'
 
 injectTapEventPlugin();
 
@@ -29,7 +28,6 @@ const renderStore = () => {
                             routes={[
                                 {path: '/', component: App, onEnter: onEnter},
                                 {path: '/simple', component: Example},
-                                {path: '/css', component: ConvertStyle},
                             ]}/>
                 </Provider>
         </MuiThemeProvider>
