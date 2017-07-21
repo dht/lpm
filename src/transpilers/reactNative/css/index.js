@@ -10,6 +10,8 @@ import padding from './padding';
 import color from './color';
 import textAlign from './textAlign';
 import flex from './flex';
+import backgroundImage from './backgroundImage';
+import backgroundSize from './backgroundSize';
 
 export default {
     width,
@@ -24,4 +26,6 @@ export default {
     color,
     textAlign,
     flex,
+    backgroundImage,
+    backgroundSize
 }

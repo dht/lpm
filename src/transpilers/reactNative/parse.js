@@ -3,6 +3,7 @@ import {BuildDependencies} from './BuildDependencies';
 import {BuildStyles} from './BuildStyle';
 import {selectorFromElementType, sortChildId, formatComponent} from './utils';
 import {prettifyHtml} from '../../_utils/prettify';
+import {parse as parseData} from './types/All';
 
 let initialState = {
     style: '',
@@ -40,19 +41,7 @@ export const parse = (state, element_id) => {
     stylesheet.newStyle(element_id);
     stylesheet.setStyle(bestSelector, style);
 
-    const innerData = data.content || '';
-
-    if (innerData) {
-        switch (elementType) {
-            case 'TEXT':
-                dom.addContent(innerData);
-                break;
-            case 'IMAGE':
-                dom.addAttribute('source', `{{uri: '${innerData}'}}`);
-                break;
-        }
-    }
-
+    parseData(elementType, dom, data, style);
 
     if (childIds && childIds.length > 0) {
         const sortedChildIds = sortChildId(state, childIds);

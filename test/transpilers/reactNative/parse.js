@@ -53,6 +53,18 @@ describe('parse React Native', function () {
         expect(result).toEqual(mock.after5)
     });
 
+    it('should parse image from backgroundImage', function () {
+
+        const result  = parse(mock.before6, 1);
+        expect(result).toEqual(mock.after6)
+    });
+
+    it('should parse image with data\'s content over backgroundImage', function () {
+
+        const result  = parse(mock.before7, 1);
+        expect(result).toEqual(mock.after7)
+    });
+
     it('should parse a complex structure', function () {
 
         const result  = parse(stateBefore1, 1);

@@ -1,4 +1,3 @@
-
 export const childrenByParentId = (state, parent_id) => {
     Object.keys(state).reduce((output, element_id) => {
         const element = state[element_id] || {};
@@ -59,4 +58,23 @@ export default class ${componentName} extends Component {
 }
 
 const styles = StyleSheet.create(${style});`
+}
+
+// https://stackoverflow.com/a/3809435/172815
+export const isUrl = (url) => {
+    const regex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/;
+
+    return regex.test(url);
+}
+
+export const urlFromBackgroundUrl = (backgroundUrl) => {
+    const regex = /url\(['"]?([^"')]+)/;
+
+    if (!regex.test(backgroundUrl)) {
+        return isUrl(backgroundUrl) ? backgroundUrl : '';
+    }
+
+    const matches = backgroundUrl.match(regex);
+
+    return matches.length > 1 ? matches[1] : ''
 }

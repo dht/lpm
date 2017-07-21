@@ -234,3 +234,54 @@ export const after5 = {
     "style": {image: {width: 50,height: 50,}},
     "dependencies": ["StyleSheet","Image"]
 };
+
+export const before6 = {
+    "1": {
+        "childIds": [],
+        "data": {
+            "className": "image",
+            "modeId": 0,
+            "tag": "",
+        },
+        "elementType": "IMAGE",
+        "id": 1,
+        "parent_id": 0,
+        "style": {
+            backgroundImage:'url(http://lorempixel.com/50/50)',
+            width: '50px',
+            height: '50px',
+        }
+    }
+}
+
+export const after6 = {
+    "jsx": "<Image style={styles.image} source={{uri: 'http://lorempixel.com/50/50'}}></Image>",
+    "style": {image: {width: 50,height: 50,}},
+    "dependencies": ["StyleSheet","Image"]
+};
+
+export const before7 = {
+    "1": {
+        "childIds": [],
+        "data": {
+            "content": "http://lorempixel.com/60/60",
+            "className": "image",
+            "modeId": 0,
+            "tag": "",
+        },
+        "elementType": "IMAGE",
+        "id": 1,
+        "parent_id": 0,
+        "style": {
+            backgroundImage:'url(http://lorempixel.com/50/50)',
+            width: '50px',
+            height: '50px',
+        }
+    }
+}
+
+export const after7 = {
+    "jsx": "<Image style={styles.image} source={{uri: 'http://lorempixel.com/60/60'}}></Image>",
+    "style": {image: {width: 50,height: 50,}},
+    "dependencies": ["StyleSheet","Image"]
+};
