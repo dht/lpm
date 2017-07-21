@@ -1,9 +1,13 @@
 import expect from 'expect'
-import {parse} from '../../../src/transpilers/web/parse';
-import * as mock from '../../mocks/web/state';
-import {stateBefore1, stateAfter1} from '../../mocks/web/all';
+import {parse, stylesheet} from '../../../src/transpilers/reactNative/parse';
+import * as mock from '../../mocks/reactNative/state';
+import {stateBefore1, stateAfter1} from '../../mocks/reactNative/all';
 
-describe('parse Web', function () {
+describe('parse React Native', function () {
+    beforeEach(function () {
+        stylesheet.clear();
+    });
+
     it('should parse simple structure', function () {
 
         const result  = parse(mock.before1, 1);
@@ -23,11 +27,16 @@ describe('parse Web', function () {
         expect(result).toEqual(mock.after3)
     });
 
+    it('should switch children according to order', function () {
+
+        const result  = parse(mock.before3a, 1);
+        expect(result).toEqual(mock.after3a)
+    });
 
     it('should return an empty object if element does not exist', function () {
 
         const result  = parse(mock.before4, 5);
-        expect(result).toEqual({html: '', css: {r1:'', r2:'', r3:'', r4:''}})
+        expect(result).toEqual({jsx: '', style:''})
     });
 
 
