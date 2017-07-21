@@ -26,7 +26,7 @@ To improve the process of developing new layouts by borrowing successful code pr
 
 #### Core
 - [lpm](https://github.com/dht/lpm) Layout-JSON specification, Element component, transpilers
-- [lpm-transpilers](https://github.com/dht/lpm-transilers) transform Layout-JSON to HTML/SASS, ReactJS, React Native
+- [lpm-transpilers](https://github.com/dht/lpm-transpilers) transform Layout-JSON to HTML/SASS, ReactJS, React Native
 
 #### Components
 - [style-panel](https://github.com/dht/style-panel) easy CSS editing for developers (keyboard based)
