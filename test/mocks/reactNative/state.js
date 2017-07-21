@@ -22,7 +22,7 @@ export const before1 = {
 
 export const after1 = {
     "jsx": "<View style={styles.container}></View>",
-    "style": "container: {flex: 1,justifyContent: 'center',alignItems: 'center',backgroundColor: '#F5FCFF',}"
+    "style": {container: {flex: 1,justifyContent: 'center',alignItems: 'center',backgroundColor: '#F5FCFF',}}
 };
 
 export const before2 = {
@@ -63,7 +63,7 @@ export const before2 = {
 
 export const after2 = {
     "jsx": "<View style={styles.container}><View style={styles.view2}></View></View>",
-    "style": "container: {flex: 1,justifyContent: 'center',alignItems: 'center',backgroundColor: '#F5FCFF',}\nview2: {backgroundColor: '#333',}"
+    "style": {container: {flex: 1,justifyContent: 'center',alignItems: 'center',backgroundColor: '#F5FCFF',},view2: {backgroundColor: '#333',}}
 };
 
 
@@ -118,7 +118,7 @@ export const before3 = {
 
 export const after3 = {
     "jsx": "<View style={styles.container}><View style={styles.view2}></View><View style={styles.view3}></View></View>",
-    "style": "container: {flex: 1,justifyContent: 'center',alignItems: 'center',backgroundColor: '#F5FCFF',}\nview2: {backgroundColor: '#333',}\nview3: {backgroundColor: '#666',}"
+    "style": {container: {flex: 1,justifyContent: 'center',alignItems: 'center',backgroundColor: '#F5FCFF',},view2: {backgroundColor: '#333',},view3: {backgroundColor: '#666',}}
 };
 export const before3a = {
     "1": {
@@ -173,7 +173,7 @@ export const before3a = {
 
 export const after3a = {
     "jsx": "<View style={styles.container}><View style={styles.view3}></View><View style={styles.view2}></View></View>",
-    "style": "container: {flex: 1,justifyContent: 'center',alignItems: 'center',backgroundColor: '#F5FCFF',}\nview2: {backgroundColor: '#333',}\nview3: {backgroundColor: '#666',}"
+    "style": {container: {flex: 1,justifyContent: 'center',alignItems: 'center',backgroundColor: '#F5FCFF',},view2: {backgroundColor: '#333',},view3: {backgroundColor: '#666',}}
 };
 
 
@@ -202,7 +202,7 @@ export const before4 = {
 
 export const after4 = {
     "jsx": "<Text style={styles.title}>Small business owners.</Text>",
-    "style": "title: {fontSize: 20,textAlign: 'center',margin: 10,}"
+    "style": {title: {fontSize: 20,textAlign: 'center',margin: 10,}}
 };
 
 export const before5 = {
@@ -226,5 +226,5 @@ export const before5 = {
 
 export const after5 = {
     "jsx": "<Image style={styles.image} source={{uri: 'http://lorempixel.com/50/50'}}></Image>",
-    "style": "image: {width: 50,height: 50,}"
+    "style": {image: {width: 50,height: 50,}}
 };

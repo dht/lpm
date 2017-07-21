@@ -1,8 +1,5 @@
 export const parse = (value) => {
-
-    value = value.replace(/'/g,'');
-
-    return `'${value}'`;
+    return value;
 }
 
 export default parse;

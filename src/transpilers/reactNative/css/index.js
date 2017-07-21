@@ -9,6 +9,7 @@ import margin from './margin';
 import padding from './padding';
 import color from './color';
 import textAlign from './textAlign';
+import flex from './flex';
 
 export default {
     width,
@@ -22,4 +23,5 @@ export default {
     padding,
     color,
     textAlign,
+    flex,
 }

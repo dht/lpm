@@ -27,13 +27,9 @@ export class BuildStyle {
     }
 
     style() {
-        const content = `${parseCss(this._style)}`.trim();
-
-        if (content.length === 0) {
-            return '';
-        }
-
-        return `${this.selector}: {${content}}`;
+        let output = {};
+        output[this.selector] = parseCss(this._style);
+        return output;
     }
 }
 
@@ -66,7 +62,8 @@ export class BuildStyles {
     style() {
        return Object
            .keys(this.rules)
-           .map(key => this.rules[key])
-           .join('\n');
+           .reduce((output, key) =>{
+                return {...output,  ...this.rules[key]};
+           }, {});
     }
 }

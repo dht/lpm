@@ -9,7 +9,10 @@ export const parseRule = (key, value) => {
         return null;
     }
 
-    return `${key}: ${value}`;
+    let output = {};
+    output[key] = value;
+
+    return output;
 }
 
 export const parseCss = (style) => {
@@ -28,7 +31,7 @@ export const parseCss = (style) => {
             return output;
         }
 
-        return output + newRule + ',';
+        return {...output, ...newRule}
     }, '');
 }
 

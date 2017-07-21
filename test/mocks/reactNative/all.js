@@ -75,5 +75,5 @@ export const stateBefore1 = {
 
 export const stateAfter1 = {
     jsx: '<View style={styles.container}><Text style={styles.text2}>Welcome to React Native!</Text><Text style={styles.text3}>To get started, edit index.android.js</Text><Text style={styles.text4}> Double tap R on your keyboard to reload, Shake or press menu button for dev menu</Text></View>',
-    style: "container: {alignItems: 'center',justifyContent: 'center',flex: 1,backgroundColor: '#F5FCFF',}\ntext2: {fontSize: 20,textAlign: 'center',margin: 10,}\ntext3: {flex: none,textAlign: 'center',color: '#333333',marginBottom: 5px,}\ntext4: {flex: none,textAlign: 'center',color: '#333333',marginBottom: 5px,}"
+    style: {container: {alignItems: 'center',justifyContent: 'center',flex: 1,backgroundColor: '#F5FCFF',},text2: {fontSize: 20,textAlign: 'center',margin: 10,},text3: {flex: 'none',textAlign: 'center',color: '#333333',marginBottom: '5px',},text4: {flex: 'none',textAlign: 'center',color: '#333333',marginBottom: '5px',}}
 }
