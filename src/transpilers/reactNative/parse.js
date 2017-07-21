@@ -1,4 +1,5 @@
 import BuildDOM from './BuildDOM';
+import {BuildDependencies} from './BuildDependencies';
 import {BuildStyles} from './BuildStyle';
 import {selectorFromElementType, sortChildId} from './utils';
 
@@ -8,6 +9,7 @@ let initialState = {
 }
 
 export const stylesheet = new BuildStyles();
+export const dependencies = new BuildDependencies();
 
 export const parse = (state, element_id) => {
 
@@ -25,6 +27,7 @@ export const parse = (state, element_id) => {
     dom.addClassName(layer);
     dom.addClassName(className);
 
+    dependencies.addDependencyByElementType(elementType);
 
     let typeSelector = selectorFromElementType(elementType);
     let bestSelector = layer || className || `${typeSelector}${element_id}`;
@@ -64,7 +67,8 @@ export const parse = (state, element_id) => {
 
     return {
         jsx: dom.jsx(),
-        style: generatedStyle
+        style: generatedStyle,
+        dependencies: dependencies.allDependencies()
     }
 
 }

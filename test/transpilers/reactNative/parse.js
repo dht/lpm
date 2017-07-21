@@ -1,11 +1,12 @@
 import expect from 'expect'
-import {parse, stylesheet} from '../../../src/transpilers/reactNative/parse';
+import {parse, stylesheet, dependencies} from '../../../src/transpilers/reactNative/parse';
 import * as mock from '../../mocks/reactNative/state';
 import {stateBefore1, stateAfter1} from '../../mocks/reactNative/all';
 
 describe('parse React Native', function () {
     beforeEach(function () {
         stylesheet.clear();
+        dependencies.clear();
     });
 
     it('should parse simple structure', function () {
