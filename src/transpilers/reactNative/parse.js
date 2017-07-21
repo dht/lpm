@@ -13,7 +13,7 @@ let initialState = {
 export const stylesheet = new BuildStyles();
 export const dependencies = new BuildDependencies();
 
-export const parse = (state, element_id) => {
+const _parse = (state, element_id) => {
 
     if (!state[element_id]) {
         return initialState;
@@ -48,7 +48,7 @@ export const parse = (state, element_id) => {
         const sortedChildIds = sortChildId(state, childIds);
 
         sortedChildIds.forEach(child_id => {
-            const childrenDom = parse(state, child_id);
+            const childrenDom = _parse(state, child_id);
 
             dom.addContent(childrenDom.jsx);
         });
@@ -62,6 +62,12 @@ export const parse = (state, element_id) => {
         dependencies: dependencies.allDependencies()
     }
 
+}
+
+export const parse = (state, element_id) => {
+    stylesheet.clear();
+    dependencies.clear();
+    return _parse(state, element_id);
 }
 
 export const format = (state, element_id, componentName = 'Layout') => {

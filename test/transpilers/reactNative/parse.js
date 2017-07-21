@@ -4,11 +4,6 @@ import * as mock from '../../mocks/reactNative/state';
 import {stateBefore1, stateAfter1, formatAfter1} from '../../mocks/reactNative/all';
 
 describe('parse React Native', function () {
-    beforeEach(function () {
-        stylesheet.clear();
-        dependencies.clear();
-    });
-
     it('should parse simple structure', function () {
 
         const result  = parse(mock.before1, 1);
