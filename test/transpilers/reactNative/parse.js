@@ -65,6 +65,18 @@ describe('parse React Native', function () {
         expect(result).toEqual(mock.after7)
     });
 
+    it('should parse image with backgroundSize', function () {
+
+        const result  = parse(mock.before8, 1);
+        expect(result).toEqual(mock.after8)
+    });
+
+    it('should parse image with invalid backgroundSize', function () {
+
+        const result  = parse(mock.before9, 1);
+        expect(result).toEqual(mock.after9)
+    });
+
     it('should parse a complex structure', function () {
 
         const result  = parse(stateBefore1, 1);

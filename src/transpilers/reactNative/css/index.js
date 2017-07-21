@@ -12,6 +12,7 @@ import textAlign from './textAlign';
 import flex from './flex';
 import backgroundImage from './backgroundImage';
 import backgroundSize from './backgroundSize';
+import resizeMode from './resizeMode';
 
 export default {
     width,
@@ -27,5 +28,6 @@ export default {
     textAlign,
     flex,
     backgroundImage,
-    backgroundSize
+    backgroundSize,
+    resizeMode,
 }

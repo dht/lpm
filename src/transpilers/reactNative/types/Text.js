@@ -1,4 +1,4 @@
-export const parse = (dom, data, style) => {
+export const parse = (dom, data, stylesheet) => {
 
     const innerData = data.content || '';
 
@@ -6,3 +6,4 @@ export const parse = (dom, data, style) => {
         dom.addContent(innerData);
     }
 }
+

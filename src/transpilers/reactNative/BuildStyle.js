@@ -21,7 +21,16 @@ export class BuildStyle {
         }
     }
 
+    getValueForKey(key) {
+        return this._style[key];
+    }
+
     renameKey(key, newKey) {
+
+        if (typeof this._style[key] === 'undefined') {
+            return;
+        }
+
         this._style[newKey] = this._style[key];
         delete (this._style[key]);
     }
@@ -52,7 +61,14 @@ export class BuildStyles {
 
     setStyle(selector, style) {
         this.stylesheet.setStyle(selector, style);
+    }
+
+    bakeStyle() {
         this.rules[this._id]  = this.stylesheet.style();
+    }
+
+    getValueForKey(key) {
+        return this.stylesheet.getValueForKey(key);
     }
 
     renameKey(key, newKey) {
