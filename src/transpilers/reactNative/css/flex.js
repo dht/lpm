@@ -1,6 +1,6 @@
 export const parse = (value) => {
 
-    if (value.trim() === 'none') {
+    if (value === 'none') {
         return value;
     }
 
