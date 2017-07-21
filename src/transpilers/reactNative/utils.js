@@ -44,7 +44,7 @@ export const sortChildId = (state, childIds) => {
         .map(element => element.id);
 }
 
-export const formatComponent = (componentName, dependencies, jsx, style) => {
+export const formatComponent = (componentName = 'Layout', dependencies = [], jsx = '', style = {}) => {
     return `import React, { Component } from 'react';
 import {
     ${dependencies.join(',\n\t')}
