@@ -1,7 +1,7 @@
 import React from 'react';
 import Element from '../../../src/Element/ElementContainer';
 import Mock from '../../_data/mock_elements';
-import ParseWeb from '../../../src/transpilers/web/parse';
+import ParseWeb from 'lpm-transpilers/transpilers/web/parse';
 import {prettifyHtml, prettifyScss} from '../../../src/_utils/prettify';
 import './Example.scss';
 

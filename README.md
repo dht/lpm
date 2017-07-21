@@ -6,10 +6,8 @@ The Core of the project is the Layout-JSON format, a markup format to describe c
  See the [Layout-JSON specification](https://github.com/dht/lpm/blob/master/specifications/element.md)
 
 This repository contains:
- - Element component for ReactJS -  renders the Layout-JSON markup
- - Transpilers: transform Layout-JSON to HTML/SASS, ReactJS, React Native
  - Information: format specifications, links to the project's repositories
- - A [tool](https://dht.github.io/lpm/#/css) for transforming simple CSS rules to React style
+ - Element component for ReactJS -  renders the Layout-JSON markup
  
 ## Incentive
 
@@ -28,6 +26,7 @@ To improve the process of developing new layouts by borrowing successful code pr
 
 #### Core
 - [lpm](https://github.com/dht/lpm) Layout-JSON specification, Element component, transpilers
+- [lpm-transpilers](https://github.com/dht/lpm-transilers) transform Layout-JSON to HTML/SASS, ReactJS, React Native
 
 #### Components
 - [style-panel](https://github.com/dht/style-panel) easy CSS editing for developers (keyboard based)
@@ -96,10 +95,6 @@ npm start
 ```
 and open:[http://localhost:3000](http://localhost:3000)
 
-first test was added as a starting point:
-```sh
-npm test
-```
 
 ## Furthor development
 
