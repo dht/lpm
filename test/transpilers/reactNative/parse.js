@@ -1,7 +1,7 @@
 import expect from 'expect'
-import {parse, stylesheet, dependencies} from '../../../src/transpilers/reactNative/parse';
+import {parse, format, stylesheet, dependencies} from '../../../src/transpilers/reactNative/parse';
 import * as mock from '../../mocks/reactNative/state';
-import {stateBefore1, stateAfter1} from '../../mocks/reactNative/all';
+import {stateBefore1, stateAfter1, formatAfter1} from '../../mocks/reactNative/all';
 
 describe('parse React Native', function () {
     beforeEach(function () {
@@ -55,8 +55,14 @@ describe('parse React Native', function () {
 
     it('should parse a complex structure', function () {
 
-        const result  = parse(stateBefore1, [1]);
+        const result  = parse(stateBefore1, 1);
         expect(result).toEqual(stateAfter1)
+    });
+
+    it('should format complex structure', function () {
+
+        const result  = format(stateBefore1, 1);
+        expect(result).toEqual(formatAfter1)
     });
 
 });

@@ -1,7 +1,7 @@
 import BuildDOM from './BuildDOM';
 import {BuildDependencies} from './BuildDependencies';
 import {BuildStyles} from './BuildStyle';
-import {selectorFromElementType, sortChildId} from './utils';
+import {selectorFromElementType, sortChildId, formatComponent} from './utils';
 
 let initialState = {
     style: '',
@@ -71,6 +71,15 @@ export const parse = (state, element_id) => {
         dependencies: dependencies.allDependencies()
     }
 
+}
+
+export const format = (state, element_id, componentName = 'Layout') => {
+    const output = parse(state, element_id);
+
+    return formatComponent(componentName,
+        output.dependencies,
+        output.jsx,
+        JSON.stringify(output.style, null, 4));
 }
 
 export default parse;

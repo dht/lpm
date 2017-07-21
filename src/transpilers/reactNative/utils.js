@@ -44,3 +44,19 @@ export const sortChildId = (state, childIds) => {
         .map(element => element.id);
 }
 
+export const formatComponent = (componentName, dependencies, jsx, style) => {
+    return `import React, { Component } from 'react';
+import {
+    ${dependencies.join(',\n\t')}
+} from 'react-native';
+
+export default class ${componentName} extends Component {
+    render() {
+        return (
+           ${jsx}
+        );
+    }
+}
+
+const styles = StyleSheet.create(${style});`
+}
