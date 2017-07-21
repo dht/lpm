@@ -40,7 +40,7 @@ export const prettifyHtml = (html) => {
         shouldBreakBefore = false,
         shouldBreakAfter = false,
         breakBefore = ['p', 'ul', 'li'],
-        breakAfter = ['div', 'h1', 'h2', 'h3', 'h4', 'p', 'ul', 'li'];
+        breakAfter = ['div', 'h1', 'h2', 'h3', 'h4', 'p', 'ul', 'li', 'View', 'Image', 'Text'];
 
     return html
         .split('')
@@ -52,7 +52,7 @@ export const prettifyHtml = (html) => {
                 mode = 'TAG';
                 inTag = true;
                 output += (shouldBreakBefore ? br(indent) : '') + '<';
-            } else if (char === '/' && mode == 'TAG') {
+            } else if (char === '/' && mode === 'TAG') {
                 mode = 'CLOSING_TAG'
                 inTag = true;
                 output += '/';

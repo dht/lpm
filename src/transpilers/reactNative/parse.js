@@ -2,6 +2,7 @@ import BuildDOM from './BuildDOM';
 import {BuildDependencies} from './BuildDependencies';
 import {BuildStyles} from './BuildStyle';
 import {selectorFromElementType, sortChildId, formatComponent} from './utils';
+import {prettifyHtml} from '../../_utils/prettify';
 
 let initialState = {
     style: '',
@@ -78,7 +79,7 @@ export const format = (state, element_id, componentName = 'Layout') => {
 
     return formatComponent(componentName,
         output.dependencies,
-        output.jsx,
+        prettifyHtml(output.jsx),
         JSON.stringify(output.style, null, 4));
 }
 
