@@ -4,7 +4,7 @@ import {getStatePath} from '../_utils/element';
 
 const mapStateToProps = (state, ownProps) => {
 
-    const elements = getStatePath(state, ownProps.statePath);
+    const elements = ownProps.elements || getStatePath(state, ownProps.statePath);
     const element = elements[ownProps.id];
 
     if (!element) {
@@ -24,6 +24,7 @@ const mapStateToProps = (state, ownProps) => {
         childIds: element.childIds,
         selected: false,
         selectedParent: false,
+        elements: ownProps.elements
     }
 }
 

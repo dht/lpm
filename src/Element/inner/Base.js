@@ -31,6 +31,7 @@ const Base = (props) => {
             statePath={statePath}
             onElementClick={props.onElementClick}
             onElementDblClick={props.onElementDblClick}
+            elements={props.elements}
         />)}
     </div>
 }
