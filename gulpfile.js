@@ -80,13 +80,20 @@ gulp.task('set-prod-node-env', function() {
 	return process.env.NODE_ENV = 'production';
 });
 
+gulp.task('buildDocs', ['set-prod-node-env'], function(callback) {
+	runSequence(
+		[ 'cleanDocs'],
+		'webpack',
+		['copyDocs', 'copyIndexOriginal'],
+		callback);
+});
+
 gulp.task('build', ['set-prod-node-env'], function(callback) {
 	runSequence(
-		['clean', 'cleanDocs'],
+		['clean'],
 		'bump',
 		'babel',
-		'webpack',
-		['copy', 'copyDocs', 'copyIndexOriginal'],
+		['copy',  'copyIndexOriginal'],
 		callback);
 });
 
