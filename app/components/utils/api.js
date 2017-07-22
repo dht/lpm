@@ -17,8 +17,13 @@ let snippetsAdhocRef;
 
 const listen = (ref, callback) => {
     return ref.on("value", snapshot => {
-        callback.call(this, snapshot.val());
+        const val = snapshot ? snapshot.val() : {};
+        callback.call(this, val, ref);
     })
+}
+
+export const stopToListen = (ref, callback) => {
+    return ref.off("value");
 }
 
 const configureFirebase = () => {
@@ -30,5 +35,6 @@ export const listenToState_adhock = (id, callback) => {
 
     return listen(_stateRef, callback);
 }
+
 
 configureFirebase();

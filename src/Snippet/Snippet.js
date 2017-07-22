@@ -11,19 +11,28 @@ export default class snippet extends React.Component {
             elements: {}
         }
 
+        this.parseElements = this.parseElements.bind(this);
     }
 
-    componentWillReceiveProps(newProps) {
+    parseElements(firebaseObject, ref) {
+        let elements = firebaseObjectToObject(firebaseObject);
+        this.setState({elements});
+        this.firebaseRef = ref;
     }
 
     componentDidMount() {
         const {listenMethod, id} = this.props;
 
         if (listenMethod && id) {
-            listenMethod(id, (firebaseObject) => {
-                let elements = firebaseObjectToObject(firebaseObject);
-                this.setState({elements});
-            });
+            listenMethod(id, this.parseElements);
+        }
+    }
+
+    componentWillUnmount() {
+        const {unlistenMethod, id} = this.props;
+
+        if (unlistenMethod && id) {
+            unlistenMethod(this.firebaseRef, this.parseElements);
         }
     }
 
