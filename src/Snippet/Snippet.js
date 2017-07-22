@@ -1,6 +1,6 @@
 import React from 'react';
 import {firebaseObjectToObject} from '../_utils/StateParser';
-import Element from '../Element';
+import Element from '../Connected';
 
 export default class snippet extends React.Component {
 
@@ -21,22 +21,23 @@ export default class snippet extends React.Component {
     }
 
     componentDidMount() {
-        const {listenMethod, id} = this.props;
+        const {subscribe, id} = this.props;
 
-        if (listenMethod && id) {
-            listenMethod(id, this.parseElements);
+        if (subscribe && id) {
+            subscribe(id, this.parseElements);
         }
     }
 
     componentWillUnmount() {
-        const {unlistenMethod, id} = this.props;
+        const {unsubscribe, id} = this.props;
 
-        if (unlistenMethod && id) {
-            unlistenMethod(this.firebaseRef, this.parseElements);
+        if (unsubscribe && id) {
+            unsubscribe(this.firebaseRef, this.parseElements);
         }
     }
 
     render() {
+        const {subscribe, unsubscribe} = this.props;
         const {elements} = this.state;
 
         return (
@@ -46,6 +47,8 @@ export default class snippet extends React.Component {
                     id={1}
                     onElementClick={() => {}}
                     onElementDblClick={() => {}}
+                    subscribe={subscribe}
+                    unsubscribe={unsubscribe}
                 />
             </div>
         );

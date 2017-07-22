@@ -15,6 +15,10 @@ const mainApp = firebase.initializeApp(firebaseCredentials);
 
 let snippetsAdhocRef;
 
+const configureFirebase = () => {
+    snippetsAdhocRef = mainApp.database().ref("bins");
+}
+
 const listen = (ref, callback) => {
     return ref.on("value", snapshot => {
         const val = snapshot ? snapshot.val() : {};
@@ -24,10 +28,6 @@ const listen = (ref, callback) => {
 
 export const stopToListen = (ref, callback) => {
     return ref.off("value");
-}
-
-const configureFirebase = () => {
-    snippetsAdhocRef = mainApp.database().ref("bins");
 }
 
 export const listenToState_adhock = (id, callback) => {

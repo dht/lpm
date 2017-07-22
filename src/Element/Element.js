@@ -4,6 +4,7 @@ import View from './inner/View';
 import Text from './inner/Text';
 import Placeholder from './inner/Placeholder';
 import Image from './inner/Image';
+import Snippet from './inner/Snippet';
 
 const Element = (props) => {
 
@@ -19,6 +20,9 @@ const Element = (props) => {
 
         case ElementTypes.TEXT:
             return <Text {...props} />;
+
+        case ElementTypes.SNIPPET:
+            return <Snippet {...props} />;
 
         default:
             return null;

@@ -4,6 +4,7 @@ import Mock from '../../_data/mock_elements';
 import ParseWeb from 'lpm-transpilers/transpilers/web/parse';
 import {prettifyHtml, prettifyScss} from '../../../src/_utils/prettify';
 import './Example.scss';
+import {listenToState_adhock, stopToListen} from '../utils/api';
 
 export default class Example extends React.Component {
 
@@ -51,6 +52,8 @@ export default class Example extends React.Component {
                         <Element id={1} statePath="elements/elements"
                                  onElementClick={this.elementClick}
                                  onElementDblClick={this.elementDoubleClick}
+                                 subscribe={listenToState_adhock}
+                                 unsubscribe={stopToListen}
                         />
                     </div>
                 </div>

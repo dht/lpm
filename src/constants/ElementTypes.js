@@ -3,6 +3,7 @@ export default  {
 	IMAGE: 'IMAGE',
 	VIEW: 'VIEW',
 	PLACEHOLDER: 'PLACEHOLDER',
+	SNIPPET: 'SNIPPET',
 };
 
 

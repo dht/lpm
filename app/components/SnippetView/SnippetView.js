@@ -44,8 +44,8 @@ export default class SnippetView extends React.Component {
                 {
                     items.map(item => <Snippet
                         key={item} id="76b42d81"
-                        listenMethod={listenToState_adhock}
-                        unlistenMethod={stopToListen} />)
+                        subscribe={listenToState_adhock}
+                        unsubscribe={stopToListen} />)
                 }
 
             </div>
