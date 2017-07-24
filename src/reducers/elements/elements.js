@@ -1,6 +1,6 @@
 import undoable, {excludeAction} from 'redux-undo'
 
-import {filterCopy as filter, find, mapElements as map} from '../../_utils/map';
+import {filterCopy as filter, find, mapElements as map} from '../../utils/map';
 
 const prefix = 'FLEX_';
 

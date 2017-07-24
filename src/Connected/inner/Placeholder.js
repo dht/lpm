@@ -1,6 +1,6 @@
 import React from 'react';
 import Base from './Base';
-import {placeholderInnerText} from '../../_utils/element';
+import {placeholderInnerText} from '../../utils/element';
 
 const Placeholder = (props) => {
     const {style} = props,

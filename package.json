@@ -1,6 +1,6 @@
 {
   "name": "lpm-core",
-  "version": "0.1.35",
+  "version": "0.1.36",
   "description": "Layout Package Manager Project",
   "main": "index.js",
   "module": "./index.js",

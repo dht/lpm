@@ -1,6 +1,6 @@
 import {connect} from 'react-redux'
 import Element from './Element';
-import {getStatePath} from '../_utils/element';
+import {getStatePath} from '../utils/element';
 
 const mapStateToProps = (state, ownProps) => {
 

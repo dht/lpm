@@ -1,5 +1,5 @@
 import React from 'react';
-import {firebaseObjectToObject} from '../_utils/StateParser';
+import {firebaseObjectToObject} from '../utils/StateParser';
 import Element from '../Connected';
 
 export default class snippet extends React.Component {
@@ -54,7 +54,3 @@ export default class snippet extends React.Component {
         );
     }
 }
-
-const styles = {
-}
-

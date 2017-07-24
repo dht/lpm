@@ -1,4 +1,4 @@
-import {filterCopy, forEach, mapCopy, reduce} from './map';
+import {filterCopy, forEach, reduce} from './map';
 
 
 const findOrderLowerThan = (items, order) => {
