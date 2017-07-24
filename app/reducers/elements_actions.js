@@ -1,13 +1,5 @@
-export const ActionTypes = {
-    SET_ELEMENTS: 'SET_ELEMENTS',
-}
+import actions from '../../src/reducers/elements/elements_actions';
 
-export const setElements = (value) => {
-
-    return {
-        type: ActionTypes.SET_ELEMENTS,
-        value
-    }
-}
-
-
+export default {
+    ...actions
+};

@@ -1,6 +1,5 @@
 import React from 'react';
 import Element from '../../../src/Element/ElementContainer';
-import Mock from '../../_data/mock_elements';
 import ParseWeb from 'lpm-transpilers/transpilers/web/parse';
 import {prettifyHtml, prettifyScss} from '../../../src/_utils/prettify';
 import './Example.scss';
@@ -12,7 +11,7 @@ export default class Example extends React.Component {
         super(props);
 
         this.state = {
-            input: Mock
+            input: props.elements
         }
 
         this.elementClick = this.elementClick.bind(this);
@@ -49,7 +48,7 @@ export default class Example extends React.Component {
                         <textarea rows="30" cols="30" value={layoutJSON}/>
                     </div>
                     <div className="col">
-                        <Element id={1} statePath="elements/elements"
+                        <Element id={1} statePath="elements/present"
                                  onElementClick={this.elementClick}
                                  onElementDblClick={this.elementDoubleClick}
                                  subscribe={listenToState_adhock}

@@ -1,6 +1,6 @@
 {
   "name": "lpm-core",
-  "version": "0.1.32",
+  "version": "0.1.35",
   "description": "Layout Package Manager Project",
   "main": "index.js",
   "module": "./index.js",
@@ -67,6 +67,7 @@
   "dependencies": {
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
+    "redux-undo": "^0.6.1",
     "sanitizer": "^0.1.3"
   }
 }
