@@ -1,5 +1,5 @@
 import expect from 'expect'
-import treeOperations from './../../src/_utils/tree-operations';
+import treeOperations from './../../src/utils/tree-operations';
 
 let base = {
 	"0": {
