@@ -3,10 +3,10 @@ import {createStore} from 'redux'
 import {combineReducers} from 'redux'
 import {routerReducer} from 'react-router-redux'
 
-import elements from '../src/reducers/elements/elements';
+import reducers from '../src';
 
 const reduxApp = combineReducers({
-    elements,
+    elements: reducers.elements,
     routing: routerReducer,
 })
 

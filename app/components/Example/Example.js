@@ -1,7 +1,7 @@
 import React from 'react';
 import Element from '../../../src/Element/ElementContainer';
 import ParseWeb from 'lpm-transpilers/transpilers/web/parse';
-import {prettifyHtml, prettifyScss} from '../../../src/_utils/prettify';
+import {prettifyHtml, prettifyScss} from '../../../src/utils/prettify';
 import './Example.scss';
 import {listenToState_adhock, stopToListen} from '../utils/api';
 

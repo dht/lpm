@@ -16,10 +16,10 @@ gulp.task('clean', function () {
 	]);
 });
 
-gulp.task('copyIndexOriginal', function () {
-    gulp.src("./src/index.js")
+gulp.task('copyUtilsIndexOriginal', function () {
+    gulp.src("./src/utils/index.js")
         .pipe(rename("index.es.js"))
-        .pipe(gulp.dest("./dist")); // ./dist/main/text/ciao/goodbye.md
+        .pipe(gulp.dest("./dist/utils")); // ./dist/main/text/ciao/goodbye.md
 });
 
 gulp.task('removePackage', function () {
@@ -84,7 +84,7 @@ gulp.task('buildDocs', ['set-prod-node-env'], function(callback) {
 	runSequence(
 		[ 'cleanDocs'],
 		'webpack',
-		['copyDocs', 'copyIndexOriginal'],
+		['copyDocs', 'copyUtilsIndexOriginal'],
 		callback);
 });
 
@@ -93,7 +93,7 @@ gulp.task('build', ['set-prod-node-env'], function(callback) {
 		['clean'],
 		'bump',
 		'babel',
-		['copy',  'copyIndexOriginal'],
+		['copy',  'copyUtilsIndexOriginal'],
 		callback);
 });
 

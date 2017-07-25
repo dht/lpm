@@ -31,7 +31,7 @@ export const ActionTypes = {
     TOGGLE_VISIBILITY: `${prefix}TOGGLE_VISIBILITY`,
 };
 
-export const styleField = (state, action) => {
+const styleField = (state, action) => {
     let newState;
 
     switch (action.type) {
@@ -53,7 +53,7 @@ export const styleField = (state, action) => {
 
 }
 
-export const vars = (state, action) => {
+const vars = (state, action) => {
     let newState, order;
 
     switch (action.type) {
@@ -110,7 +110,7 @@ export const vars = (state, action) => {
     }
 }
 
-export const data = (state, action) => {
+const data = (state, action) => {
     let newState;
 
     switch (action.type) {

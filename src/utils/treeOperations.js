@@ -1,5 +1,13 @@
 import {filterCopy, forEach, reduce} from './map';
 
+const getParentId = (selection) => {
+
+    if (selection.parent_id === 0) {
+        return selection.selected_element_id;
+    }
+
+    return selection.parent_id;
+}
 
 const findOrderLowerThan = (items, order) => {
     let output = null;
@@ -104,7 +112,6 @@ export const getSiblings = (elements, selectedElementId) => {
     return output;
 }
 
-
 export const aboveItem = (state, selectedElementId) => {
     const elements = state.elements.present;
 
@@ -201,7 +208,6 @@ export const treeElements = (state, elementId) => {
     return elementsInTree;
 }
 
-
 const _cleanObject = (object) => {
     return Object.keys(object).reduce((output, key) => {
         const property = object[key];
@@ -291,8 +297,13 @@ export const getRootHeight = (state, otherHeight) => {
     return style.height || otherHeight;
 }
 
+export const getMaxOrder = (state, parent_id) => {
+    return findMaxOrderForParentId(state.elements.present, parent_id);
+
+}
 
 export default {
+    getParentId,
     findOrderLowerThan,
     findOrderGreaterThan,
     findMaxOrderForParentId,
@@ -311,6 +322,7 @@ export default {
     cleanTreeFromEmpty,
     treeElementIds,
     getMaxId,
+    getMaxOrder,
     filterOtherModes,
     childIdsOrder,
     identifyRole,

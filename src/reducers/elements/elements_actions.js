@@ -2,6 +2,8 @@ import {ActionTypes} from './elements'
 
 import ElementTypes from '../../constants/ElementTypes'
 
+import {getFlexState} from '../../utils/utils';
+
 let _id = 1;
 
 const nextId = () => {
@@ -225,7 +227,6 @@ const toggleVisibility = (element_id) => {
 
 const addOrReplace = (selected_element_type, selected_element_id, elementType, parent_id, style, data = {}) => {
 
-
     switch (selected_element_type) {
         case ElementTypes.PLACEHOLDER:
             return replaceElement(selected_element_id, elementType, parent_id, style, data);
@@ -233,7 +234,6 @@ const addOrReplace = (selected_element_type, selected_element_id, elementType, p
             return addElement(elementType, parent_id, style, data);
     }
 }
-
 
 export default {
     nextId,
