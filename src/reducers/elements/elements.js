@@ -358,6 +358,10 @@ export const elements = (state = {}, action) => {
                 order,
             });
 
+            if (action.data.content) {
+                newElement.data.content = action.data.content;
+            }
+
             action.newElement = newElement;
 
             return map(state, e => {

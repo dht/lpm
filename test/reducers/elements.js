@@ -18,7 +18,7 @@ describe('element reducer', function () {
                 type: types.ADD_ELEMENT,
                 id: 2,
                 parent_id: 1,
-                elementType: 'view',
+                elementType: 'VIEW',
                 data: {
                     "vars": {
                         "r1": {
@@ -41,7 +41,7 @@ describe('element reducer', function () {
             {
                 id: 2,
                 parent_id: 1,
-                elementType: 'view',
+                elementType: 'VIEW',
                 style: {color: 'green'},
                 childIds: [],
                 "data": {
@@ -70,7 +70,7 @@ describe('element reducer', function () {
         let state = {
             id: 2,
             parent_id: 1,
-            elementType: 'view',
+            elementType: 'VIEW',
             style: {color: 'green'},
             data: {
                 vars: {
@@ -97,7 +97,7 @@ describe('element reducer', function () {
             {
                 id: 2,
                 parent_id: 1,
-                elementType: 'view',
+                elementType: 'VIEW',
                 style: {color: 'red', padding: '15px'},
                 childIds: [],
                 data: {
@@ -118,7 +118,7 @@ describe('element reducer', function () {
         let state = {
             id: 2,
             parent_id: 1,
-            elementType: 'view',
+            elementType: 'VIEW',
             style: {color: 'green'},
             data: {
                 vars: {
@@ -145,7 +145,7 @@ describe('element reducer', function () {
             {
                 id: 2,
                 parent_id: 1,
-                elementType: 'view',
+                elementType: 'VIEW',
                 style: {color: 'green', margin: '10px', padding: '10px'},
                 childIds: [],
                 data: {
@@ -166,7 +166,7 @@ describe('element reducer', function () {
         let state = {
             id: 2,
             parent_id: 1,
-            elementType: 'view',
+            elementType: 'VIEW',
             style: {fontSize: '10px'},
             data: {
                 vars: {
@@ -193,7 +193,7 @@ describe('element reducer', function () {
             {
                 id: 2,
                 parent_id: 1,
-                elementType: 'view',
+                elementType: 'VIEW',
                 style: {fontSize: '10px', margin: '10px', padding: '10px'},
                 childIds: [],
                 data: {
@@ -227,7 +227,7 @@ describe('elements (many) reducer', function () {
                 type: types.ADD_ELEMENT,
                 id: 1,
                 parent_id: 0,
-                elementType: 'view',
+                elementType: 'VIEW',
                 style: {color: 'green'},
                 data: {}
             })
@@ -236,7 +236,7 @@ describe('elements (many) reducer', function () {
                 '1': {
                     id: 1,
                     parent_id: 0,
-                    elementType: 'view',
+                    elementType: 'VIEW',
                     style: {color: 'green'},
                     childIds: [],
                     data: {
@@ -258,7 +258,7 @@ describe('elements (many) reducer', function () {
             1: {
                 id: 1,
                 parent_id: 0,
-                elementType: 'view',
+                elementType: 'VIEW',
                 style: {color: 'green'},
                 childIds: [],
                 data: {}
@@ -272,7 +272,7 @@ describe('elements (many) reducer', function () {
                 type: types.ADD_ELEMENT,
                 id: 2,
                 parent_id: 0,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green'},
             })
         ).toEqual(
@@ -280,7 +280,7 @@ describe('elements (many) reducer', function () {
                 '1': {
                     id: 1,
                     parent_id: 0,
-                    elementType: 'view',
+                    elementType: 'VIEW',
                     style: {color: 'green'},
                     childIds: [],
                     data: {}
@@ -288,7 +288,7 @@ describe('elements (many) reducer', function () {
                 '2': {
                     id: 2,
                     parent_id: 0,
-                    elementType: 'text',
+                    elementType: 'TEXT',
                     style: {color: 'green'},
                     childIds: [],
                     data: {
@@ -311,7 +311,7 @@ describe('elements (many) reducer', function () {
             1: {
                 id: 1,
                 parent_id: 0,
-                elementType: 'view',
+                elementType: 'VIEW',
                 style: {color: 'green'},
                 data: {},
                 childIds: []
@@ -325,7 +325,7 @@ describe('elements (many) reducer', function () {
                 type: types.ADD_ELEMENT,
                 id: 2,
                 parent_id: 1,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green'},
             })
         ).toEqual(
@@ -333,7 +333,7 @@ describe('elements (many) reducer', function () {
                 '1': {
                     id: 1,
                     parent_id: 0,
-                    elementType: 'view',
+                    elementType: 'VIEW',
                     style: {color: 'green'},
                     childIds: [2],
                     data: {}
@@ -341,7 +341,7 @@ describe('elements (many) reducer', function () {
                 '2': {
                     id: 2,
                     parent_id: 1,
-                    elementType: 'text',
+                    elementType: 'TEXT',
                     style: {color: 'green'},
                     childIds: [],
                     data: {
@@ -364,7 +364,7 @@ describe('elements (many) reducer', function () {
             1: {
                 id: 1,
                 parent_id: 0,
-                elementType: 'view',
+                elementType: 'VIEW',
                 style: {color: 'green'},
                 data: {},
                 childIds: []
@@ -378,7 +378,7 @@ describe('elements (many) reducer', function () {
                 type: types.ADD_ELEMENT,
                 id: 4,
                 parent_id: 3,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green'},
             })
         ).toEqual(
@@ -386,7 +386,7 @@ describe('elements (many) reducer', function () {
                 1: {
                     id: 1,
                     parent_id: 0,
-                    elementType: 'view',
+                    elementType: 'VIEW',
                     style: {color: 'green'},
                     childIds: [],
                     data: {},
@@ -403,7 +403,7 @@ describe('elements (many) reducer', function () {
             '1': {
                 id: 1,
                 parent_id: 6,
-                elementType: 'view',
+                elementType: 'VIEW',
                 style: {color: 'green'},
                 data: {},
                 childIds: [2]
@@ -411,7 +411,7 @@ describe('elements (many) reducer', function () {
             '2': {
                 id: 2,
                 parent_id: 6,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green'},
                 data: {},
                 childIds: []
@@ -419,7 +419,7 @@ describe('elements (many) reducer', function () {
             '3': {
                 id: 3,
                 parent_id: 6,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green'},
                 data: {},
                 childIds: []
@@ -437,7 +437,7 @@ describe('elements (many) reducer', function () {
             '1': {
                 id: 1,
                 parent_id: 6,
-                elementType: 'view',
+                elementType: 'VIEW',
                 style: {color: 'green'},
                 childIds: [2],
                 data: {}
@@ -445,7 +445,7 @@ describe('elements (many) reducer', function () {
             '2': {
                 id: 2,
                 parent_id: 6,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green'},
                 childIds: [],
                 data: {}
@@ -460,7 +460,7 @@ describe('elements (many) reducer', function () {
             '1': {
                 id: 1,
                 parent_id: 0,
-                elementType: 'view',
+                elementType: 'VIEW',
                 style: {color: 'green'},
                 data: {},
                 childIds: [2]
@@ -468,7 +468,7 @@ describe('elements (many) reducer', function () {
             '2': {
                 id: 2,
                 parent_id: 1,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green'},
                 data: {},
                 childIds: []
@@ -486,7 +486,7 @@ describe('elements (many) reducer', function () {
             '1': {
                 id: 1,
                 parent_id: 0,
-                elementType: 'view',
+                elementType: 'VIEW',
                 style: {color: 'green'},
                 childIds: [],
                 data: {}
@@ -501,7 +501,7 @@ describe('elements (many) reducer', function () {
             '1': {
                 id: 1,
                 parent_id: -1,
-                elementType: 'view',
+                elementType: 'VIEW',
                 style: {color: 'green'},
                 data: {},
                 childIds: [2]
@@ -509,7 +509,7 @@ describe('elements (many) reducer', function () {
             '2': {
                 id: 2,
                 parent_id: 1,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green'},
                 data: {},
                 childIds: []
@@ -534,7 +534,7 @@ describe('elements (many) reducer', function () {
             '1': {
                 id: 1,
                 parent_id: -1,
-                elementType: 'view',
+                elementType: 'VIEW',
                 style: {color: 'green'},
                 data: {},
                 childIds: [2]
@@ -542,7 +542,7 @@ describe('elements (many) reducer', function () {
             '2': {
                 id: 2,
                 parent_id: 1,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green'},
                 data: {},
                 childIds: [3]
@@ -550,7 +550,7 @@ describe('elements (many) reducer', function () {
             '3': {
                 id: 3,
                 parent_id: 2,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green'},
                 data: {},
                 childIds: []
@@ -574,7 +574,7 @@ describe('elements (many) reducer', function () {
             '4': {
                 id: 4,
                 parent_id: 3,
-                elementType: 'view',
+                elementType: 'VIEW',
                 style: {color: 'green'},
                 data: {},
                 childIds: []
@@ -582,7 +582,7 @@ describe('elements (many) reducer', function () {
             '3': {
                 id: 3,
                 parent_id: 2,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green'},
                 data: {},
                 childIds: [4]
@@ -590,7 +590,7 @@ describe('elements (many) reducer', function () {
             '2': {
                 id: 2,
                 parent_id: 1,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green'},
                 data: {},
                 childIds: [3]
@@ -598,7 +598,7 @@ describe('elements (many) reducer', function () {
             '1': {
                 id: 1,
                 parent_id: -1,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green'},
                 data: {},
                 childIds: [2]
@@ -623,7 +623,7 @@ describe('elements (many) reducer', function () {
             '1': {
                 id: 1,
                 parent_id: 2,
-                elementType: 'view',
+                elementType: 'VIEW',
                 style: {color: 'green'},
                 data: {},
                 childIds: []
@@ -631,7 +631,7 @@ describe('elements (many) reducer', function () {
             '2': {
                 id: 2,
                 parent_id: 3,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green'},
                 data: {},
                 childIds: [1]
@@ -639,7 +639,7 @@ describe('elements (many) reducer', function () {
             '3': {
                 id: 3,
                 parent_id: 4,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green'},
                 data: {},
                 childIds: [2]
@@ -647,7 +647,7 @@ describe('elements (many) reducer', function () {
             '4': {
                 id: 4,
                 parent_id: 0,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green'},
                 data: {},
                 childIds: [3]
@@ -665,7 +665,7 @@ describe('elements (many) reducer', function () {
             '1': {
                 id: 1,
                 parent_id: 2,
-                elementType: 'view',
+                elementType: 'VIEW',
                 style: {color: 'green'},
                 data: {},
                 childIds: []
@@ -673,7 +673,7 @@ describe('elements (many) reducer', function () {
             '2': {
                 id: 2,
                 parent_id: 3,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green'},
                 data: {},
                 childIds: [1]
@@ -681,7 +681,7 @@ describe('elements (many) reducer', function () {
             '3': {
                 id: 3,
                 parent_id: 4,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green'},
                 data: {},
                 childIds: [2]
@@ -689,7 +689,7 @@ describe('elements (many) reducer', function () {
             '4': {
                 id: 4,
                 parent_id: 0,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green'},
                 data: {},
                 childIds: [3]
@@ -1220,14 +1220,14 @@ describe('elements (many) reducer', function () {
             '1': {
                 id: 1,
                 parent_id: 0,
-                elementType: 'view',
+                elementType: 'VIEW',
                 style: {color: 'green'},
                 childIds: [2]
             },
             '2': {
                 id: 2,
                 parent_id: 1,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green'},
                 childIds: []
             }
@@ -1244,14 +1244,14 @@ describe('elements (many) reducer', function () {
             '1': {
                 id: 1,
                 parent_id: 0,
-                elementType: 'view',
+                elementType: 'VIEW',
                 style: {color: 'green'},
                 childIds: [2]
             },
             '2': {
                 id: 2,
                 parent_id: 1,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green'},
                 childIds: []
             }
@@ -1265,28 +1265,28 @@ describe('elements (many) reducer', function () {
             '1': {
                 id: 1,
                 parent_id: 2,
-                elementType: 'view',
+                elementType: 'VIEW',
                 style: {color: 'green'},
                 childIds: []
             },
             '2': {
                 id: 2,
                 parent_id: 3,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green'},
                 childIds: [1]
             },
             '3': {
                 id: 3,
                 parent_id: 4,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green'},
                 childIds: [2]
             },
             '4': {
                 id: 4,
                 parent_id: 0,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green'},
                 childIds: [3]
             }
@@ -1306,7 +1306,7 @@ describe('elements (many) reducer', function () {
                 '1': {
                     id: 1,
                     parent_id: 2,
-                    elementType: 'view',
+                    elementType: 'VIEW',
                     style: {color: 'green'},
                     childIds: [],
                     data: {}
@@ -1314,7 +1314,7 @@ describe('elements (many) reducer', function () {
                 '2': {
                     id: 2,
                     parent_id: 3,
-                    elementType: 'text',
+                    elementType: 'TEXT',
                     style: {color: 'green'},
                     childIds: [1],
                     data: {}
@@ -1322,7 +1322,7 @@ describe('elements (many) reducer', function () {
                 '3': {
                     id: 3,
                     parent_id: 4,
-                    elementType: 'text',
+                    elementType: 'TEXT',
                     style: {color: 'green'},
                     childIds: [2],
                     data: {}
@@ -1330,7 +1330,7 @@ describe('elements (many) reducer', function () {
                 '4': {
                     id: 4,
                     parent_id: 0,
-                    elementType: 'text',
+                    elementType: 'TEXT',
                     style: {color: 'red', padding: '15px'},
                     childIds: [3],
                     data: {
@@ -1349,28 +1349,28 @@ describe('elements (many) reducer', function () {
             '1': {
                 id: 1,
                 parent_id: 2,
-                elementType: 'view',
+                elementType: 'VIEW',
                 style: {color: 'green'},
                 childIds: []
             },
             '2': {
                 id: 2,
                 parent_id: 3,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green'},
                 childIds: [1]
             },
             '3': {
                 id: 3,
                 parent_id: 4,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green'},
                 childIds: [2]
             },
             '4': {
                 id: 4,
                 parent_id: 0,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green'},
                 childIds: [3],
                 data: {content: 'before', dataId: 'name'}
@@ -1391,7 +1391,7 @@ describe('elements (many) reducer', function () {
                 '1': {
                     id: 1,
                     parent_id: 2,
-                    elementType: 'view',
+                    elementType: 'VIEW',
                     style: {color: 'green'},
                     childIds: [],
                     data: {}
@@ -1399,7 +1399,7 @@ describe('elements (many) reducer', function () {
                 '2': {
                     id: 2,
                     parent_id: 3,
-                    elementType: 'text',
+                    elementType: 'TEXT',
                     style: {color: 'green'},
                     childIds: [1],
                     data: {}
@@ -1407,7 +1407,7 @@ describe('elements (many) reducer', function () {
                 '3': {
                     id: 3,
                     parent_id: 4,
-                    elementType: 'text',
+                    elementType: 'TEXT',
                     style: {color: 'green'},
                     childIds: [2],
                     data: {}
@@ -1415,7 +1415,7 @@ describe('elements (many) reducer', function () {
                 '4': {
                     id: 4,
                     parent_id: 0,
-                    elementType: 'text',
+                    elementType: 'TEXT',
                     style: {color: 'green'},
                     childIds: [3],
                     data: {content: 'Yes!', dataId: 'name'}
@@ -1431,28 +1431,28 @@ describe('elements (many) reducer', function () {
             '1': {
                 id: 1,
                 parent_id: 2,
-                elementType: 'view',
+                elementType: 'VIEW',
                 style: {color: 'green'},
                 childIds: []
             },
             '2': {
                 id: 2,
                 parent_id: 3,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green'},
                 childIds: [1]
             },
             '3': {
                 id: 3,
                 parent_id: 4,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green'},
                 childIds: [2]
             },
             '4': {
                 id: 4,
                 parent_id: 0,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green'},
                 childIds: [3]
             }
@@ -1472,7 +1472,7 @@ describe('elements (many) reducer', function () {
                 '1': {
                     id: 1,
                     parent_id: 2,
-                    elementType: 'view',
+                    elementType: 'VIEW',
                     style: {color: 'green'},
                     childIds: [],
                     data: {}
@@ -1480,7 +1480,7 @@ describe('elements (many) reducer', function () {
                 '2': {
                     id: 2,
                     parent_id: 3,
-                    elementType: 'text',
+                    elementType: 'TEXT',
                     style: {color: 'green'},
                     childIds: [1],
                     data: {}
@@ -1488,7 +1488,7 @@ describe('elements (many) reducer', function () {
                 '3': {
                     id: 3,
                     parent_id: 4,
-                    elementType: 'text',
+                    elementType: 'TEXT',
                     style: {color: 'green'},
                     childIds: [2],
                     data: {}
@@ -1496,7 +1496,7 @@ describe('elements (many) reducer', function () {
                 '4': {
                     id: 4,
                     parent_id: 0,
-                    elementType: 'text',
+                    elementType: 'TEXT',
                     style: {color: 'red', padding: '15px'},
                     childIds: [3],
                     data: {}
@@ -1512,28 +1512,28 @@ describe('elements (many) reducer', function () {
             '1': {
                 id: 1,
                 parent_id: 2,
-                elementType: 'view',
+                elementType: 'VIEW',
                 style: {color: 'green'},
                 childIds: []
             },
             '2': {
                 id: 2,
                 parent_id: 3,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green'},
                 childIds: [1]
             },
             '3': {
                 id: 3,
                 parent_id: 4,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green'},
                 childIds: [2]
             },
             '4': {
                 id: 4,
                 parent_id: 0,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green', padding: '10px', order: 3},
                 data: {
                     vars: {
@@ -1555,7 +1555,7 @@ describe('elements (many) reducer', function () {
                     id: 4,
                     type: types.REPLACE_ELEMENT,
                     parent_id: 0,
-                    elementType: 'view',
+                    elementType: 'VIEW',
                     style: {color: 'white', order: 7},
                     data: {}
                 })
@@ -1564,7 +1564,7 @@ describe('elements (many) reducer', function () {
                 '1': {
                     id: 1,
                     parent_id: 2,
-                    elementType: 'view',
+                    elementType: 'VIEW',
                     style: {color: 'green'},
                     childIds: [],
                     data: {}
@@ -1572,7 +1572,7 @@ describe('elements (many) reducer', function () {
                 '2': {
                     id: 2,
                     parent_id: 3,
-                    elementType: 'text',
+                    elementType: 'TEXT',
                     style: {color: 'green'},
                     childIds: [1],
                     data: {}
@@ -1580,7 +1580,7 @@ describe('elements (many) reducer', function () {
                 '3': {
                     id: 3,
                     parent_id: 4,
-                    elementType: 'text',
+                    elementType: 'TEXT',
                     style: {color: 'green'},
                     childIds: [2],
                     data: {}
@@ -1588,7 +1588,7 @@ describe('elements (many) reducer', function () {
                 '4': {
                     id: 4,
                     parent_id: 0,
-                    elementType: 'view',
+                    elementType: 'VIEW',
                     style: {color: 'white', order: 3, padding: '10px'},
                     childIds: [],
                     data: {
@@ -1611,35 +1611,35 @@ describe('elements (many) reducer', function () {
             '1': {
                 id: 1,
                 parent_id: 2,
-                elementType: 'view',
+                elementType: 'VIEW',
                 style: {color: 'green', order: 1},
                 childIds: [5, 6]
             },
             '2': {
                 id: 2,
                 parent_id: 3,
-                elementType: 'view',
+                elementType: 'VIEW',
                 style: {order: 1},
                 childIds: [1]
             },
             '3': {
                 id: 3,
                 parent_id: 4,
-                elementType: 'view',
+                elementType: 'VIEW',
                 style: {order: 1},
                 childIds: [2]
             },
             '4': {
                 id: 4,
                 parent_id: 0,
-                elementType: 'view',
+                elementType: 'VIEW',
                 style: {order: 1},
                 childIds: [3]
             },
             '5': {
                 id: 5,
                 parent_id: 1,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green', padding: '10px', order: 1},
                 childIds: [],
                 data: {
@@ -1654,7 +1654,7 @@ describe('elements (many) reducer', function () {
             '6': {
                 id: 6,
                 parent_id: 1,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green', padding: '10px', order: 2},
                 childIds: []
             }
@@ -1668,7 +1668,7 @@ describe('elements (many) reducer', function () {
                     id: 5,
                     type: types.REPLACE_ELEMENT,
                     parent_id: 1,
-                    elementType: 'view',
+                    elementType: 'VIEW',
                     style: {color: 'white', order: 3},
                     data: {}
                 })
@@ -1677,7 +1677,7 @@ describe('elements (many) reducer', function () {
                 '1': {
                     id: 1,
                     parent_id: 2,
-                    elementType: 'view',
+                    elementType: 'VIEW',
                     style: {color: 'green', order: 1},
                     childIds: [5, 6],
                     data: {}
@@ -1685,7 +1685,7 @@ describe('elements (many) reducer', function () {
                 '2': {
                     id: 2,
                     parent_id: 3,
-                    elementType: 'view',
+                    elementType: 'VIEW',
                     style: {order: 1},
                     childIds: [1],
                     data: {}
@@ -1693,7 +1693,7 @@ describe('elements (many) reducer', function () {
                 '3': {
                     id: 3,
                     parent_id: 4,
-                    elementType: 'view',
+                    elementType: 'VIEW',
                     style: {order: 1},
                     childIds: [2],
                     data: {}
@@ -1701,7 +1701,7 @@ describe('elements (many) reducer', function () {
                 '4': {
                     id: 4,
                     parent_id: 0,
-                    elementType: 'view',
+                    elementType: 'VIEW',
                     style: {order: 1},
                     childIds: [3],
                     data: {}
@@ -1709,7 +1709,7 @@ describe('elements (many) reducer', function () {
                 '5': {
                     id: 5,
                     parent_id: 1,
-                    elementType: 'view',
+                    elementType: 'VIEW',
                     style: {color: 'white', padding: '10px', order: 1},
                     childIds: [],
                     data: {
@@ -1724,7 +1724,7 @@ describe('elements (many) reducer', function () {
                 '6': {
                     id: 6,
                     parent_id: 1,
-                    elementType: 'text',
+                    elementType: 'TEXT',
                     style: {color: 'green', padding: '10px', order: 2},
                     childIds: [],
                     data: {}
@@ -1740,35 +1740,35 @@ describe('elements (many) reducer', function () {
             '1': {
                 id: 1,
                 parent_id: 2,
-                elementType: 'view',
+                elementType: 'VIEW',
                 style: {color: 'green', order: 1},
                 childIds: [5, 6]
             },
             '2': {
                 id: 2,
                 parent_id: 3,
-                elementType: 'view',
+                elementType: 'VIEW',
                 style: {order: 1},
                 childIds: [1]
             },
             '3': {
                 id: 3,
                 parent_id: 4,
-                elementType: 'view',
+                elementType: 'VIEW',
                 style: {order: 1},
                 childIds: [2]
             },
             '4': {
                 id: 4,
                 parent_id: 0,
-                elementType: 'view',
+                elementType: 'VIEW',
                 style: {order: 1},
                 childIds: [3]
             },
             '5': {
                 id: 5,
                 parent_id: 1,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green', padding: '10px', order: 1},
                 childIds: [],
                 data: {
@@ -1778,7 +1778,7 @@ describe('elements (many) reducer', function () {
             '6': {
                 id: 6,
                 parent_id: 1,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green', padding: '10px', order: 2},
                 childIds: []
             }
@@ -1792,7 +1792,7 @@ describe('elements (many) reducer', function () {
                     id: 5,
                     type: types.REPLACE_ELEMENT,
                     parent_id: 1,
-                    elementType: 'view',
+                    elementType: 'VIEW',
                     style: {color: 'white', order: 3},
                     data: {}
                 })
@@ -1801,7 +1801,7 @@ describe('elements (many) reducer', function () {
                 '1': {
                     id: 1,
                     parent_id: 2,
-                    elementType: 'view',
+                    elementType: 'VIEW',
                     style: {color: 'green', order: 1},
                     childIds: [5, 6],
                     data: {}
@@ -1809,7 +1809,7 @@ describe('elements (many) reducer', function () {
                 '2': {
                     id: 2,
                     parent_id: 3,
-                    elementType: 'view',
+                    elementType: 'VIEW',
                     style: {order: 1},
                     childIds: [1],
                     data: {}
@@ -1817,7 +1817,7 @@ describe('elements (many) reducer', function () {
                 '3': {
                     id: 3,
                     parent_id: 4,
-                    elementType: 'view',
+                    elementType: 'VIEW',
                     style: {order: 1},
                     childIds: [2],
                     data: {}
@@ -1825,7 +1825,7 @@ describe('elements (many) reducer', function () {
                 '4': {
                     id: 4,
                     parent_id: 0,
-                    elementType: 'view',
+                    elementType: 'VIEW',
                     style: {order: 1},
                     childIds: [3],
                     data: {}
@@ -1833,7 +1833,7 @@ describe('elements (many) reducer', function () {
                 '5': {
                     id: 5,
                     parent_id: 1,
-                    elementType: 'view',
+                    elementType: 'VIEW',
                     style: {color: 'white', padding: '10px', order: 1},
                     childIds: [],
                     data: {
@@ -1848,10 +1848,63 @@ describe('elements (many) reducer', function () {
                 '6': {
                     id: 6,
                     parent_id: 1,
-                    elementType: 'text',
+                    elementType: 'TEXT',
                     style: {color: 'green', padding: '10px', order: 2},
                     childIds: [],
                     data: {}
+                }
+            }
+        )
+
+    })
+
+    it('should handle REPLACE_ELEMENT with content', function () {
+
+        let state = {
+            '1': {
+                id: 1,
+                parent_id: 2,
+                elementType: 'PLACEHOLDER',
+                style: {color: 'green', width: '50px'},
+                childIds: [],
+                data: {vars: {
+                    r1: {color: 'green', width: '50px'},
+                    r2: {color: 'green', width: '50px'},
+                    r3: {color: 'green', width: '50px'},
+                    r4: {color: 'green', width: '50px'}
+
+                }}
+            },
+        };
+
+        deepFreeze(state);
+
+        expect(
+            reducerMany(state,
+                {
+                    id: 1,
+                    type: types.REPLACE_ELEMENT,
+                    parent_id: 0,
+                    elementType: 'TEXT',
+                    style: {color: 'white', order: 7},
+                    data: {content: 'hello'}
+                })
+        ).toEqual(
+            {
+                1: {childIds: [],
+                    data: {
+                        content: 'hello',
+                        vars: {
+                            r1: {color: 'white', order: 1, width:'50px'},
+                            r2: {color: 'white', order: 1, width:'50px'},
+                            r3: {color: 'white', order: 1, width:'50px'},
+                            r4: {color: 'white', order: 1, width:'50px'}
+                        }
+                    },
+                    elementType: 'TEXT',
+                    id: 1,
+                    parent_id: 0,
+                    style: {color: 'white', order: 7, width:'50px'}
                 }
             }
         )
@@ -1864,42 +1917,42 @@ describe('elements (many) reducer', function () {
             '1': {
                 id: 1,
                 parent_id: 2,
-                elementType: 'view',
+                elementType: 'VIEW',
                 style: {color: 'green', order: 1},
                 childIds: [5, 6]
             },
             '2': {
                 id: 2,
                 parent_id: 3,
-                elementType: 'view',
+                elementType: 'VIEW',
                 style: {order: 1},
                 childIds: [1]
             },
             '3': {
                 id: 3,
                 parent_id: 4,
-                elementType: 'view',
+                elementType: 'VIEW',
                 style: {order: 1},
                 childIds: [2]
             },
             '4': {
                 id: 4,
                 parent_id: 0,
-                elementType: 'view',
+                elementType: 'VIEW',
                 style: {order: 1},
                 childIds: [3]
             },
             '5': {
                 id: 5,
                 parent_id: 1,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green', padding: '10px', order: 1},
                 childIds: []
             },
             '6': {
                 id: 6,
                 parent_id: 1,
-                elementType: 'text',
+                elementType: 'TEXT',
                 style: {color: 'green', padding: '10px', order: 2},
                 childIds: []
             }
