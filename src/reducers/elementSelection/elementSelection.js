@@ -10,6 +10,7 @@ const prefix = 'FLEX_';
 export const ActionTypes = {
     SET_SELECTED_ELEMENT: `${prefix}SET_SELECTED_ELEMENT`,
     SET_ELEMENT_RECT: `${prefix}SET_ELEMENT_RECT`,
+    REFRESH_SELECTOR: `${prefix}REFRESH_SELECTOR`,
 };
 
 const elementSelection = (state = initialState, action) => {

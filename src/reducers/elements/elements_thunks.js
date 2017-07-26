@@ -11,14 +11,20 @@ import {parseLoremPixel} from '../../utils/loremPixel';
 
 import clone from 'clone';
 
+export const getModeId = state => {
+    return state.appState.modeId || 0;
+}
+
 const addPlaceholder = () => {
 
     return (dispatch, getState) => {
 
         let flexState = getFlexState(getState());
-        let {parent_id, maxOrder, modeId} = stateOperations.getSelection(flexState);
+        let {parent_id, modeId, maxId} = stateOperations.getSelection(flexState),
+            maxOrder = stateOperations.getMaxOrder(flexState);
 
-        let action = actions.addElement(ElementTypes.PLACEHOLDER, parent_id, {
+
+        let action = actions.addElement(maxId + 1, ElementTypes.PLACEHOLDER, parent_id, {
             order: maxOrder + 1, flex: 1, backgroundSize: "cover",
             backgroundRepeat: "no-repeat"
         }, {modeId: modeId});
@@ -34,9 +40,10 @@ const addText = () => {
     return (dispatch, getState) => {
 
         let flexState = getFlexState(getState());
-        let {parent_id, maxOrder, modeId} = stateOperations.getSelection(flexState);
+        let {parent_id, modeId, maxId, selected_element_id, selected_element_type} = stateOperations.getSelection(flexState),
+            maxOrder = stateOperations.getMaxOrder(flexState);
 
-        let action = actions.addOrReplace(ElementTypes.TEXT, parent_id, {
+        let action = actions.addOrReplace(maxId + 1, selected_element_type, selected_element_id, ElementTypes.TEXT, parent_id, {
             order: maxOrder + 1,
             flex: 'none',
         }, {content: "Lorem ipsum", modeId: modeId});
@@ -50,9 +57,10 @@ const addImage = () => {
     return (dispatch, getState) => {
 
         let flexState = getFlexState(getState());
-        let {parent_id, maxOrder, modeId} = stateOperations.getSelection(flexState);
+        let {parent_id, modeId, maxId, selected_element_type, selected_element_id,} = stateOperations.getSelection(flexState),
+            maxOrder = stateOperations.getMaxOrder(flexState);
 
-        let action = actions.addOrReplace(ElementTypes.IMAGE, parent_id, {
+        let action = actions.addOrReplace(maxId + 1, selected_element_type, selected_element_id, ElementTypes.IMAGE, parent_id, {
             order: maxOrder + 1,
             backgroundImage: "url('https://rnbin.com/images/image.png')",
             backgroundSize: "cover",
@@ -66,14 +74,16 @@ const addImage = () => {
         dispatch(selection_actions.setSelectedElement(action.id, parent_id, action.elementType))
     }
 }
-const addVerticalView = (rows) => {
+const addVerticalView = (rows = 1) => {
     return (dispatch, getState) => {
 
         let flexState = getFlexState(getState());
-        let {parent_id, maxOrder, modeId} = stateOperations.getSelection(flexState);
+        let {parent_id, modeId, maxId, selected_element_type, selected_element_id,} = stateOperations.getSelection(flexState),
+            maxOrder = stateOperations.getMaxOrder(flexState),
+            refreshAction;
 
         //console.log('onAddVerticalView rows -> ', rows);
-        let action = actions.addOrReplace(ElementTypes.VIEW, parent_id, {
+        let action = actions.addOrReplace(maxId + 1, selected_element_type, selected_element_id, ElementTypes.VIEW, parent_id, {
             order: maxOrder + 1,
             display: 'flex',
             flexDirection: 'column',
@@ -84,7 +94,7 @@ const addVerticalView = (rows) => {
         dispatch(action);
 
         for (let row = 0; row < parseInt(rows, 10); row++) {
-            action = actions.addElement(ElementTypes.PLACEHOLDER, root_id, {
+            action = actions.addElement(maxId + 1, ElementTypes.PLACEHOLDER, root_id, {
                 order: row + 1,
                 flex: 1,
                 backgroundSize: 'cover'
@@ -93,20 +103,23 @@ const addVerticalView = (rows) => {
 
             if (row === 0) {
                 dispatch(selection_actions.setSelectedElement(action.id, root_id, action.elementType))
-                dispatch(selection_actions.refreshSelector(20));
+                refreshAction = selection_actions.refreshSelector(20);
             }
         }
+
+        return dispatch(refreshAction);
     }
 }
 const addVerticalViewBySizes = (sizes) => {
     return (dispatch, getState) => {
 
         let flexState = getFlexState(getState());
-        let {parent_id, maxOrder, modeId} = stateOperations.getSelection(flexState);
-
+        let {parent_id, modeId, maxId, selected_element_type, selected_element_id,} = stateOperations.getSelection(flexState),
+            maxOrder = stateOperations.getMaxOrder(flexState),
+            refreshAction;
 
         //console.log('onAddVerticalView rows -> ', rows);
-        let action = actions.addOrReplace(ElementTypes.VIEW, parent_id, {
+        let action = actions.addOrReplace(maxId + 1, selected_element_type, selected_element_id, ElementTypes.VIEW, parent_id, {
             order: maxOrder + 1,
             flexDirection: 'column',
             alignItems: 'stretch',
@@ -129,23 +142,28 @@ const addVerticalViewBySizes = (sizes) => {
             }
 
 
-            action = actions.addElement(ElementTypes.PLACEHOLDER, root_id, style, {modeId: modeId})
+            action = actions.addElement(maxId + 1, ElementTypes.PLACEHOLDER, root_id, style, {modeId: modeId})
             dispatch(action);
 
             if (row === 0) {
                 dispatch(selection_actions.setSelectedElement(action.id, root_id, action.elementType))
-                dispatch(selection_actions.refreshSelector(20));
+                refreshAction = selection_actions.refreshSelector(20);
             }
         }
+
+        return dispatch(refreshAction);
     }
 }
-const addHorizontalView = (columns) => {
+
+const addHorizontalView = (columns = 1) => {
     return (dispatch, getState) => {
 
         let flexState = getFlexState(getState());
-        let {parent_id, maxOrder, modeId} = stateOperations.getSelection(flexState);
+        let {parent_id, modeId, maxId, selected_element_type, selected_element_id,} = stateOperations.getSelection(flexState),
+            maxOrder = stateOperations.getMaxOrder(flexState),
+            refreshAction;
 
-        let action = actions.addOrReplace(ElementTypes.VIEW, parent_id, {
+        let action = actions.addOrReplace(maxId + 1, selected_element_type, selected_element_id, ElementTypes.VIEW, parent_id, {
             order: maxOrder + 1,
             flexDirection: 'row',
             minHeight: '30px',
@@ -158,7 +176,7 @@ const addHorizontalView = (columns) => {
         dispatch(action);
 
         for (let col = 0; col < parseInt(columns, 10); col++) {
-            action = actions.addElement(ElementTypes.PLACEHOLDER, root_id, {
+            action = actions.addElement(maxId + 1, ElementTypes.PLACEHOLDER, root_id, {
                 flex: 1,
                 order: col + 1
             }, {modeId: modeId})
@@ -166,19 +184,22 @@ const addHorizontalView = (columns) => {
 
             if (col === 0) {
                 dispatch(selection_actions.setSelectedElement(action.id, root_id, action.elementType))
-                dispatch(selection_actions.refreshSelector(20));
+                refreshAction = selection_actions.refreshSelector(20);
             }
         }
+
+        return dispatch(refreshAction);
     }
 }
 const addHorizontalViewBySizes = (sizes) => {
     return (dispatch, getState) => {
 
         let flexState = getFlexState(getState());
-        let {parent_id, maxOrder, modeId} = stateOperations.getSelection(flexState);
+        let {parent_id, modeId, maxId, selected_element_type, selected_element_id,} = stateOperations.getSelection(flexState),
+            maxOrder = stateOperations.getMaxOrder(flexState),
+            refreshAction;
 
-
-        let action = actions.addOrReplace(ElementTypes.VIEW, parent_id, {
+        let action = actions.addOrReplace(maxId + 1, selected_element_type, selected_element_id, ElementTypes.VIEW, parent_id, {
             order: maxOrder + 1,
             flexDirection: 'row',
             minHeight: '30px',
@@ -200,28 +221,27 @@ const addHorizontalViewBySizes = (sizes) => {
                 style.width = size + 'px';
             }
 
-            size.height = '50px';
-
-
-            action = actions.addElement(ElementTypes.PLACEHOLDER, root_id, style, {modeId: modeId})
+            action = actions.addElement(maxId + 1, ElementTypes.PLACEHOLDER, root_id, style, {modeId: modeId})
 
             dispatch(action);
 
             if (col === 0) {
                 dispatch(selection_actions.setSelectedElement(action.id, root_id, action.elementType))
-                dispatch(selection_actions.refreshSelector(20));
+                refreshAction = selection_actions.refreshSelector(20);
             }
         }
+
+        return dispatch(refreshAction);
     }
 }
 const addView = (data) => {
     return (dispatch, getState) => {
 
         let flexState = getFlexState(getState());
-        let {parent_id, maxOrder, modeId} = stateOperations.getSelection(flexState);
+        let {parent_id, modeId, maxId, selected_element_type, selected_element_id,} = stateOperations.getSelection(flexState),
+            maxOrder = stateOperations.getMaxOrder(flexState);
 
-
-        let action = actions.addOrReplace(ElementTypes.VIEW, parent_id, {
+        let action = actions.addOrReplace(maxId + 1, selected_element_type, selected_element_id, ElementTypes.VIEW, parent_id, {
             order: maxOrder + 1,
         }, {modeId: modeId, ...data})
         let root_id = action.id;
@@ -235,10 +255,10 @@ const addDivider = (data) => {
     return (dispatch, getState) => {
 
         let flexState = getFlexState(getState());
-        let {parent_id, maxOrder, modeId} = stateOperations.getSelection(flexState);
+        let {parent_id, modeId, maxId, selected_element_type, selected_element_id,} = stateOperations.getSelection(flexState),
+            maxOrder = stateOperations.getMaxOrder(flexState);
 
-
-        let action = actions.addOrReplace(ElementTypes.VIEW, parent_id, {
+        let action = actions.addOrReplace(maxId + 1, selected_element_type, selected_element_id, ElementTypes.VIEW, parent_id, {
             order: maxOrder + 1,
             backgroundColor: '#333',
             margin: '10px 0',
@@ -258,9 +278,10 @@ const addSnippet = (data) => {
     return (dispatch, getState) => {
 
         let flexState = getFlexState(getState());
-        let {parent_id, maxOrder, modeId} = stateOperations.getSelection(flexState);
+        let {parent_id, modeId, maxId, selected_element_type, selected_element_id,} = stateOperations.getSelection(flexState),
+            maxOrder = stateOperations.getMaxOrder(flexState);
 
-        let action = actions.addOrReplace(ElementTypes.SNIPPET, parent_id, {
+        let action = actions.addOrReplace(maxId + 1, selected_element_type, selected_element_id, ElementTypes.SNIPPET, parent_id, {
             order: maxOrder + 1,
         }, {modeId: modeId, ...data})
         let root_id = action.id;
@@ -274,7 +295,7 @@ const addSnippet = (data) => {
 }
 const selectRoot = () => {
     return (dispatch, getState) => {
-        const rootElement = treeOperations.root(getState());
+        const rootElement = treeOperations.root(getState().flexState);
         dispatch(selection_actions.setSelectedElement(rootElement.id, rootElement.parent_id, rootElement.elementType));
     }
 }
@@ -298,14 +319,14 @@ const injectSnippet = (rootId, rootParentId, rootOrder, snippet) => {
     return (dispatch, getState) => {
 
         const state = getFlexState(getState());
-        let action, reIndexMap = {}, actions = [];
+        let action, reIndexMap = {}, _actions = [];
 
         const ids = treeOperations.treeElementIds(state, rootId);
 
         dispatch(actions.removeElements(ids));
 
-        const maxId = treeOperations.getMaxId(getFlexState(getState()).elements.present);
-        actions.setId(maxId + 1);
+        let maxId = treeOperations.getMaxId(getFlexState(getState()).elements.present);
+        maxId++;
 
         let snippetState = clone(snippet.state);
 
@@ -327,10 +348,11 @@ const injectSnippet = (rootId, rootParentId, rootOrder, snippet) => {
                 element.parent_id = reIndexMap[element.parent_id];
             }
 
-            action = actions.addElement(element.elementType, element.parent_id, element.style, element.data);
+            maxId++;
+            action = actions.addElement(maxId, element.elementType, element.parent_id, element.style, element.data);
             const promise = dispatch(action);
 
-            actions.push(action);
+            _actions.push(action);
             promises.push(promise);
 
             reIndexMap[id] = action.id;
@@ -340,7 +362,7 @@ const injectSnippet = (rootId, rootParentId, rootOrder, snippet) => {
 
         return Promise.all(promises)
             .then(() => {
-                return actions;
+                return _actions;
             });
     }
 }
@@ -351,24 +373,23 @@ const resetScreen = () => {
 
         dispatch(selection_actions.setSelectedElement(1, 0, 'VIEW'));
         dispatch(actions.clearElements());
-        actions.resetId();
 
         let action;
 
         // 1
-        action = dispatch(actions.addElement(ElementTypes.VIEW, 0, {
+        action = dispatch(actions.addElement(1, ElementTypes.VIEW, 0, {
             order: 1,
-            flex:1,
-            display:'flex',
-            flexDirection:'column',
+            flex: 1,
+            display: 'flex',
+            flexDirection: 'column',
         }, {modeId: modeId}));
 
         const root_id = action.id;
 
         // 2 [1]
-        const selected_action = actions.addElement(ElementTypes.PLACEHOLDER, root_id, {
+        const selected_action = actions.addElement(2, ElementTypes.PLACEHOLDER, root_id, {
             order: 1,
-            flex:1,
+            flex: 1,
             height: "50px",
         }, {modeId: modeId});
 
@@ -389,15 +410,16 @@ const applyDataContentForCurrentElement = (data) => {
         const selectedElement = treeOperations.getItem(state.elements.present, elementSelection.id) || {},
             {elementType} = selectedElement;
 
-        if (elementType ===  ElementTypes.IMAGE) {
+        if (elementType === ElementTypes.IMAGE) {
             data.content = parseLoremPixel(data.content, Math.ceil(rect.width), Math.ceil(rect.height));
         }
 
         dispatch(actions.applyData(id, data));
         dispatch(selection_actions.refreshSelector(20));
-        dispatch(selection_actions.refreshSelector(500));
+        return dispatch(selection_actions.refreshSelector(500));
     }
 }
+
 const applyDataFieldForCurrentElement = (fieldName, fieldType) => {
     return (dispatch, getState) => {
 
@@ -416,20 +438,12 @@ const applyStyleFieldForCurrentElement = (fieldName, cssKey) => {
         dispatch(actions.applyStyleField(elementSelection.id, fieldName, cssKey));
     }
 }
-const setElements = (value) => {
-    return (dispatch, getState) => {
 
-        dispatch(actions.setElements(value));
-
-        const maxId = treeOperations.getMaxId(getFlexState(getState()).elements.present);
-        actions.setId(maxId + 1);
-    }
-}
 const pasteCopiedStyle = (element) => {
     return (dispatch, getState) => {
 
-        const {appState, clipboard} = getFlexState(getState()),
-            {copiedStyle} = clipboard,
+        const {appState, clipboard} = getFlexState(getState());
+        const {copiedStyle} = clipboard,
             {resolution = 1} = appState;
 
         if (copiedStyle) {
@@ -474,7 +488,6 @@ export default {
     applyDataContentForCurrentElement,
     applyDataFieldForCurrentElement,
     applyStyleFieldForCurrentElement,
-    setElements,
     pasteCopiedStyle,
     pasteCopiedElement,
 }

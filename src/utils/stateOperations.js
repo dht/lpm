@@ -3,12 +3,13 @@ import treeOperations from './treeOperations';
 
 const getSelection = (state) => {
 
-    const {elementSelection} = state;
+    const {elementSelection, elements} = state;
 
     const parent_id = parseInt(elementSelection.parent_id, 10) || 0;
     const selected_element_id = parseInt(elementSelection.id, 10);
     const selected_element_type = elementSelection.elementType;
     const isPlaceholder = (selected_element_type === ElementTypes.PLACEHOLDER);
+    const maxId = treeOperations.getMaxId(elements.present);
 
     return {
         parent_id,
@@ -16,6 +17,7 @@ const getSelection = (state) => {
         selected_element_type,
         isPlaceholder,
         modeId: getModeId(state),
+        maxId
     }
 }
 

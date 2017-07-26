@@ -1,6 +1,6 @@
 {
   "name": "lpm-core",
-  "version": "0.1.39",
+  "version": "0.1.49",
   "description": "Layout Package Manager Project",
   "main": "index.js",
   "module": "./index.js",
@@ -10,7 +10,7 @@
     "start": "node server.js",
     "test": "export NODE_ENV=testing && mocha --compilers js:babel-register --recursive",
     "test:watch": "npm test -- --watch",
-    "test:play": "export NODE_ENV=testing && mocha --compilers js:babel-register --recursive --grep playground --watch"
+    "test:play": "export NODE_ENV=testing && mocha --compilers js:babel-register --recursive --grep play --watch"
   },
   "author": "Guy Stein",
   "license": "MIT",
@@ -55,6 +55,8 @@
     "react-tap-event-plugin": "^2.0.1",
     "react-test-renderer": "^15.6.1",
     "redux": "^3.7.2",
+    "redux-mock-store": "^1.2.3",
+    "redux-thunk": "^2.2.0",
     "run-sequence": "^1.2.2",
     "sass-loader": "^4.1.1",
     "sinon": "^2.3.8",

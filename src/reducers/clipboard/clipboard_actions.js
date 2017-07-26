@@ -28,6 +28,7 @@ const setCopiedElementTree = (element) => {
     return (dispatch, getState) => {
 
         const state = getFlexState(getState());
+
         let elements = treeOperations.treeElements(state, element.id);
 
         if (!elements || Object.keys(elements).length === 0) {

@@ -1,5 +1,16 @@
 import {filterCopy, forEach, reduce} from './map';
 
+const _elements = (state) => {
+
+    if (state && state.elements && state.elements.present) {
+        return state.elements.present;
+    } else if (state && state.present) {
+        return state.present;
+    } else  {
+        return state;
+    }
+}
+
 const getParentId = (selection) => {
 
     if (selection.parent_id === 0) {
@@ -113,7 +124,7 @@ export const getSiblings = (elements, selectedElementId) => {
 }
 
 export const aboveItem = (state, selectedElementId) => {
-    const elements = state.elements.present;
+    const elements = _elements(state);
 
     let siblings = getSiblings(elements, selectedElementId);
     let selectedElement = getItem(elements, selectedElementId);
@@ -127,7 +138,7 @@ export const aboveItem = (state, selectedElementId) => {
 }
 
 export const belowItem = (state, selectedElementId) => {
-    const elements = state.elements.present;
+    const elements = _elements(state);
 
     let siblings = getSiblings(elements, selectedElementId);
     let selectedElement = getItem(elements, selectedElementId);
@@ -141,7 +152,7 @@ export const belowItem = (state, selectedElementId) => {
 }
 
 export const firstChild = (state, selectedElementId) => {
-    const elements = state.elements.present;
+    const elements = _elements(state);
 
     let selectedElement = getItem(elements, selectedElementId);
 
@@ -154,12 +165,13 @@ export const firstChild = (state, selectedElementId) => {
 }
 
 export const root = (state) => {
-    const elements = state.elements.present;
+    const elements = _elements(state);
     const keys = Object.keys(elements);
 
     if (keys.length === 0) {
         return null;
     }
+
     const firstElement = getItem(elements, keys[0]);
 
     if (firstElement && firstElement.parent_id === 0) {
@@ -170,7 +182,7 @@ export const root = (state) => {
 }
 
 export const getElementsOrder = (state, selectedElementId) => {
-    const elements = state.elements.present;
+    const elements = _elements(state);
     let selectedElement = getItem(elements, selectedElementId);
 
     const {style = {}} = selectedElement
@@ -180,29 +192,33 @@ export const getElementsOrder = (state, selectedElementId) => {
 }
 
 export const parent = (state, selectedElementId) => {
-    const elements = state.elements.present;
+    const elements = _elements(state);
     let selectedElement = getItem(elements, selectedElementId);
 
     return getItem(elements, selectedElement.parent_id);
 }
 
 export const treeElements = (state, elementId) => {
-    const elements = state.elements.present;
+    const elements = _elements(state);
+
     let elementsInTree = {};
 
     let elementsToCheck = [elementId];
 
     let runs = 0;
 
-
     while (elementsToCheck.length && runs < 100) {
+
         const _elementId = elementsToCheck.pop();
         const element = getItem(elements, _elementId);
+
         elementsInTree[element.id] = element;
 
         if (element.childIds) {
             elementsToCheck = [...elementsToCheck, ...element.childIds];
         }
+
+        runs++;
     }
 
     return elementsInTree;
@@ -286,7 +302,8 @@ export const identifyRole = (element) => {
 }
 
 export const selectedElement = (state, elementSelection) => {
-    return getItem(state.elements.present, elementSelection.id);
+    const elements = _elements(state);
+    return getItem(elements, elementSelection.id);
 }
 
 export const getRootHeight = (state, otherHeight) => {
@@ -298,7 +315,8 @@ export const getRootHeight = (state, otherHeight) => {
 }
 
 export const getMaxOrder = (state, parent_id) => {
-    return findMaxOrderForParentId(state.elements.present, parent_id);
+    const elements = _elements(state);
+    return findMaxOrderForParentId(elements, parent_id);
 
 }
 

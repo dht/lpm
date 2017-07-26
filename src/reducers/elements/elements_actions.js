@@ -4,27 +4,7 @@ import ElementTypes from '../../constants/ElementTypes'
 
 import {getFlexState} from '../../utils/utils';
 
-let _id = 1;
-
-const nextId = () => {
-    return _id;
-}
-
-const bumpId = () => {
-    _id++;
-}
-
-const resetId = () => {
-    _id = 1;
-}
-
-const setId = (id) => {
-    _id = id;
-}
-
-const addElement = (elementType, parent_id, style, data) => {
-
-    let id = _id++;
+const addElement = (id, elementType, parent_id, style, data) => {
 
     data = data || {}
 
@@ -63,7 +43,7 @@ const setElements = (value) => {
     return {
         type: ActionTypes.SET_ELEMENTS,
         value,
-        silent: true,
+        
     }
 }
 
@@ -165,7 +145,7 @@ const previewData = (id, data) => {
         type: ActionTypes.PREVIEW_DATA,
         id,
         data,
-        silent: true,
+        
     }
 }
 
@@ -175,7 +155,7 @@ const previewStyle = (id, style) => {
         type: ActionTypes.PREVIEW_STYLE,
         id,
         style,
-        silent: true,
+        
     }
 }
 
@@ -225,21 +205,17 @@ const toggleVisibility = (element_id) => {
     }
 }
 
-const addOrReplace = (selected_element_type, selected_element_id, elementType, parent_id, style, data = {}) => {
+const addOrReplace = (id, selected_element_type, selected_element_id, elementType, parent_id, style, data = {}) => {
 
     switch (selected_element_type) {
         case ElementTypes.PLACEHOLDER:
             return replaceElement(selected_element_id, elementType, parent_id, style, data);
         default:
-            return addElement(elementType, parent_id, style, data);
+            return addElement(id, elementType, parent_id, style, data);
     }
 }
 
 export default {
-    nextId,
-    bumpId,
-    resetId,
-    setId,
     addElement,
     replaceElement,
     clearElements,

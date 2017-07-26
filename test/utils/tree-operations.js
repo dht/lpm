@@ -209,7 +209,7 @@ let shortBase = {
 
 describe('tree operations', function () {
     let state;
-    
+
 	it('should return order of sibling with Max Order', function () {
 
 		state = shortBase;

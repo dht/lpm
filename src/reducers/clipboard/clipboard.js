@@ -5,7 +5,7 @@ const initialState = {
 
 const prefix = 'FLEX_';
 
-const ActionTypes = {
+export const ActionTypes = {
     SET_COPIED_STYLE: `${prefix}SET_COPIED_STYLE`,
     SET_COPIED_ELEMENT: `${prefix}SET_COPIED_ELEMENT`,
 };

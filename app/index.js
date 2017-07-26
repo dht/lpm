@@ -23,7 +23,6 @@ const onEnter = () => {
 
 const onExample = () => {
     store.dispatch(actions.setElements(elements));
-    actions.setId(6);
     store.dispatch(actions.addElement('TEXT', 1, element.style, element.data));
 }
 

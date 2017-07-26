@@ -13,7 +13,7 @@ const setSelectedElement = (id, parent_id, elementType) => {
         id,
         parent_id,
         elementType,
-        silent: true,
+
     }
 }
 
@@ -22,7 +22,7 @@ const setElementRect = (elementRect) => {
     return {
         type: ActionTypes.SET_ELEMENT_RECT,
         rect: elementRect,
-        silent: true,
+
     }
 }
 
@@ -36,12 +36,27 @@ const setElementRect = (elementRect) => {
  */
 //@formatter:on
 
+const doc = typeof document !== 'undefined' ? document : {
+    querySelector: () => {
+        return {
+            getBoundingClientRect: () => {
+                return {
+                    width: 100,
+                    height: 100,
+                    left: 100,
+                    top: 100,
+                }
+            }
+        }
+    }
+};
+
 const findOtherElement = (id) => {
     let elementDOM;
 
     while (!elementDOM && id > 0) {
         id--;
-        elementDOM = document.querySelector(`#element-${id}`);
+        elementDOM = doc.querySelector(`#element-${id}`);
     }
 
     return elementDOM;
@@ -53,22 +68,23 @@ const refreshSelector = (delay = 0) => {
         let {elementSelection} = getFlexState(getState());
         let {id} = elementSelection;
 
-        setTimeout(() => {
+        let elementDOM = doc.querySelector(`#element-${id}`);
 
-            let elementDOM = document.querySelector(`#element-${id}`);
+        if (!elementDOM) {
+            elementDOM = findOtherElement(id);
+        }
 
-            // maybe undo action which removed selected object
-            if (!elementDOM) {
-                elementDOM = findOtherElement(id);
-            }
+        if (!elementDOM) {
+            return;
+        }
 
-            if (!elementDOM) {
-                return;
-            }
-
-            const rect = elementDOM.getBoundingClientRect();
-            dispatch(setElementRect(rect));
-        }, delay)
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                const rect = elementDOM.getBoundingClientRect();
+                dispatch(setElementRect(rect));
+                resolve(true);
+            }, delay)
+        });
     }
 }
 
