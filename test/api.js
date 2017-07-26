@@ -381,6 +381,17 @@ describe('thunks', function () {
         )
     });
 
+    it('should run previewStyle properly', function () {
+        const store = mockStore(clean);
+
+        store.dispatch(api.previewStyle(2, {color: 'green'}));
+        const actions = store.getActions();
+
+        expect(actions).toEqual(
+            [{id: 2, style: {color: 'green'}, type: 'FLEX_PREVIEW_STYLE'}]
+        )
+    });
+
     it('should run injectSnippet properly', function () {
         const store = mockStore(clean);
 

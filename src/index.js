@@ -120,7 +120,7 @@ export default {
     deleteElement: (id) => elements.deleteElement(id),
     switchElementsOrder: (id1, id2) => elements.switchElementsOrder(id1, id2),
     previewData: (id, data) => elements.previewData(id, data),
-    previewStyle: (id, style) => elements.previewData(id, style),
+    previewStyle: (id, style) => elements.previewStyle(id, style),
     removeElements: (ids) => elements.removeElements(ids),
     renameTag: (id, value) => elements.renameTag(id, value),
     renameLayer: (id, value) => elements.renameLayer(id, value),
