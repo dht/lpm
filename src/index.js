@@ -4,6 +4,8 @@ import elementsThunks from './reducers/elements/elements_thunks'
 import selection from './reducers/elementSelection/elementSelection_actions'
 import treeOperations from './utils/treeOperations';
 
+import {ActionTypes} from './reducers/elements/elements';
+
 // clipboard
 export const setCopiedStyle = (value) => clipboard.setCopiedStyle(value)
 export const setCopiedElement = (value) => clipboard.setCopiedElement(value)
@@ -13,10 +15,6 @@ export const copyStyle = () => clipboard.copyStyle()
 export const paste = () => clipboard.paste()
 
 // elements
-export const nextId = () => elements.nextId()
-export const bumpId = () => elements.bumpId()
-export const resetId = () => elements.resetId()
-export const setId = (id) => elements.setId(id)
 export const addElement = (elementType, parent_id, style, data) => elements.addElement(elementType, parent_id, style, data)
 export const replaceElement = (target_id, elementType, parent_id, style, data) => elements.replaceElement(target_id, elementType, parent_id, style, data)
 export const clearElements = () => elements.clearElements()
@@ -40,6 +38,7 @@ export const expandView = (id, isClosed) => elements.expandView(id, isClosed)
 export const loadResolution = (value) => elements.loadResolution(value)
 export const toggleVisibility = (element_id) => elements.toggleVisibility(element_id)
 export const addOrReplace = (selected_element_type, selected_element_id, elementType, parent_id, style, data = {}) => elements.addOrReplace(selected_element_type, selected_element_id, elementType, parent_id, style, data = {})
+export const setElements = (value) => elements.setElements(value);
 
 // elements thunks
 export const addPlaceholder = () => elementsThunks.addPlaceholder();
@@ -60,9 +59,9 @@ export const resetScreen = () => elementsThunks.resetScreen();
 export const applyDataContentForCurrentElement = (data) => elementsThunks.applyDataContentForCurrentElement(data);
 export const applyDataFieldForCurrentElement = (fieldName, fieldType) => elementsThunks.applyDataFieldForCurrentElement(fieldName, fieldType);
 export const applyStyleFieldForCurrentElement = (fieldName, cssKey) => elementsThunks.applyStyleFieldForCurrentElement(fieldName, cssKey);
-export const setElements = (value) => elementsThunks.setElements(value);
 export const pasteCopiedStyle = (element) => elementsThunks.pasteCopiedStyle(element);
 export const pasteCopiedElement = (element) => elementsThunks.pasteCopiedElement(element);
+export const pasteSketch = (clipboardText) => elementsThunks.pasteSketch(clipboardText);
 
 // selection
 export const setSelectedElement = (id, parent_id, elementType) => selection.setSelectedElement(id, parent_id, elementType);
@@ -98,7 +97,10 @@ export const identifyRole = (element) => treeOperations.identifyRole(element);
 export const selectedElement = (state, elementSelection) => treeOperations.selectedElement(state, elementSelection);
 export const getRootHeight = (state, otherHeight) => treeOperations.getRootHeight(state, otherHeight);
 
+export const ActionTypesElements = ActionTypes;
+
 export default {
+    ActionTypesElements: ActionTypes,
     setCopiedStyle: (value) => clipboard.setCopiedStyle(value),
     setCopiedElement: (value) => clipboard.setCopiedElement(value),
     setCopiedElementTree: (element) => clipboard.setCopiedElementTree(element),
@@ -149,6 +151,7 @@ export default {
     setElements: (value) => elements.setElements(value),
     pasteCopiedStyle: (element) => elementsThunks.pasteCopiedStyle(element),
     pasteCopiedElement: (element) => elementsThunks.pasteCopiedElement(element),
+    pasteSketch: (clipboardText) => elementsThunks.pasteSketch(clipboardText),
     setSelectedElement: (id, parent_id, elementType) => selection.setSelectedElement(id, parent_id, elementType),
     setElementRect: (elementRect) => selection.setElementRect(elementRect),
     findOtherElement: (id) => selection.findOtherElement(id),

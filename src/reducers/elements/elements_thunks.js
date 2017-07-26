@@ -8,6 +8,7 @@ import ElementTypes from '../../constants/ElementTypes'
 
 import {getFlexState} from '../../utils/utils';
 import {parseLoremPixel} from '../../utils/loremPixel';
+import {transform_sketch} from '../../utils/sketch';
 
 import clone from 'clone';
 
@@ -469,6 +470,19 @@ const pasteCopiedElement = (element) => {
     }
 }
 
+export const pasteSketch = (clipboardText) => {
+    return (dispatch, getState) => {
+
+        const style = transform_sketch(clipboardText);
+        const state = getFlexState(getState());
+        const {elementSelection} = state;
+
+        if (state) {
+            dispatch(applyStyle(elementSelection.id, style));
+        }
+    }
+}
+
 export default {
     addPlaceholder,
     addText,
@@ -490,4 +504,5 @@ export default {
     applyStyleFieldForCurrentElement,
     pasteCopiedStyle,
     pasteCopiedElement,
+    pasteSketch,
 }
