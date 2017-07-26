@@ -68,18 +68,18 @@ const refreshSelector = (delay = 0) => {
         let {elementSelection} = getFlexState(getState());
         let {id} = elementSelection;
 
-        let elementDOM = doc.querySelector(`#element-${id}`);
-
-        if (!elementDOM) {
-            elementDOM = findOtherElement(id);
-        }
-
-        if (!elementDOM) {
-            return;
-        }
-
         return new Promise((resolve) => {
             setTimeout(() => {
+                let elementDOM = doc.querySelector(`#element-${id}`);
+
+                if (!elementDOM) {
+                    elementDOM = findOtherElement(id);
+                }
+
+                if (!elementDOM) {
+                    return;
+                }
+
                 const rect = elementDOM.getBoundingClientRect();
                 dispatch(setElementRect(rect));
                 resolve(true);
