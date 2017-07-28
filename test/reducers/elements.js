@@ -1,6 +1,7 @@
 import expect from 'expect'
 import {element as reducer, elements as reducerMany, ActionTypes as types} from '../../src/reducers/elements/elements';
 import deepFreeze from 'deep-freeze';
+import clean from '../mocks/clean';
 
 describe('element reducer', function () {
     it('should return null for undefined', function () {
@@ -396,7 +397,6 @@ describe('elements (many) reducer', function () {
 
     })
 
-
     it('should handle DELETE_ELEMENT', function () {
 
         let state = {
@@ -527,7 +527,6 @@ describe('elements (many) reducer', function () {
 
     })
 
-
     it('should handle DELETE_ELEMENT and remove grandchildren', function () {
 
         let state = {
@@ -615,7 +614,6 @@ describe('elements (many) reducer', function () {
         ).toEqual({})
 
     })
-
 
     it('should handle DELETE_ELEMENT on a non existing child', function () {
 
@@ -1342,7 +1340,6 @@ describe('elements (many) reducer', function () {
 
     })
 
-
     it('should handle APPLY_DATA for multiple attributes', function () {
 
         let state = {
@@ -1599,6 +1596,63 @@ describe('elements (many) reducer', function () {
                             r4: {color: 'white', order: 3, padding: '10px'},
                         }
                     }
+                }
+            }
+        )
+
+    })
+
+    it('should handle REPLACE_ELEMENT #2', function () {
+
+        let state = clean.flexState.elements.present;
+
+        deepFreeze(state);
+
+        expect(
+            reducerMany(state,
+                {
+                    id: 2,
+                    type: types.REPLACE_ELEMENT,
+                    parent_id: 0,
+                    elementType: 'VIEW',
+                    style: {},
+                    data: {}
+                })
+        ).toEqual(
+            {
+                1: {
+                    childIds: [2],
+                    data: {
+                        modeId: 0,
+                        vars: {
+                            r1: {display: 'flex', flex: 1, flexDirection: 'column', order: 1},
+                            r2: {display: 'flex', flex: 1, flexDirection: 'column', order: 1},
+                            r3: {display: 'flex', flex: 1, flexDirection: 'column', order: 1},
+                            r4: {display: 'flex', flex: 1, flexDirection: 'column', order: 1}
+                        }
+                    },
+                    elementType: 'VIEW',
+                    id: 1,
+                    parent_id: 0,
+                    style: {display: 'flex', flex: 1, flexDirection: 'column', order: 1}
+                },
+                2: {
+                    childIds: [],
+                    data: {
+                        dataField: 'hello',
+                        modeId: 0,
+                        styleField: {backgroundColor: 'color1', color: 'color2', height: 'height'},
+                        vars: {
+                            r1: {flex: 1, height: '50px', order: 1},
+                            r2: {flex: 1, height: '50px', order: 1},
+                            r3: {flex: 1, height: '50px', order: 1},
+                            r4: {flex: 1, height: '50px', order: 1}
+                        }
+                    },
+                    elementType: 'VIEW',
+                    id: 2,
+                    parent_id: 0,
+                    style: {flex: 1, height: '50px', order: 1}
                 }
             }
         )
@@ -1867,13 +1921,15 @@ describe('elements (many) reducer', function () {
                 elementType: 'PLACEHOLDER',
                 style: {color: 'green', width: '50px'},
                 childIds: [],
-                data: {vars: {
-                    r1: {color: 'green', width: '50px'},
-                    r2: {color: 'green', width: '50px'},
-                    r3: {color: 'green', width: '50px'},
-                    r4: {color: 'green', width: '50px'}
+                data: {
+                    vars: {
+                        r1: {color: 'green', width: '50px'},
+                        r2: {color: 'green', width: '50px'},
+                        r3: {color: 'green', width: '50px'},
+                        r4: {color: 'green', width: '50px'}
 
-                }}
+                    }
+                }
             },
         };
 
@@ -1891,20 +1947,21 @@ describe('elements (many) reducer', function () {
                 })
         ).toEqual(
             {
-                1: {childIds: [],
+                1: {
+                    childIds: [],
                     data: {
                         content: 'hello',
                         vars: {
-                            r1: {color: 'white', order: 1, width:'50px'},
-                            r2: {color: 'white', order: 1, width:'50px'},
-                            r3: {color: 'white', order: 1, width:'50px'},
-                            r4: {color: 'white', order: 1, width:'50px'}
+                            r1: {color: 'white', order: 1, width: '50px'},
+                            r2: {color: 'white', order: 1, width: '50px'},
+                            r3: {color: 'white', order: 1, width: '50px'},
+                            r4: {color: 'white', order: 1, width: '50px'}
                         }
                     },
                     elementType: 'TEXT',
                     id: 1,
                     parent_id: 0,
-                    style: {color: 'white', order: 7, width:'50px'}
+                    style: {color: 'white', order: 7, width: '50px'}
                 }
             }
         )
@@ -1968,8 +2025,6 @@ describe('elements (many) reducer', function () {
         ).toEqual({})
 
     })
-
-
 })
 
 

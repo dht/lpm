@@ -219,7 +219,7 @@ export const element = (state, action) => {
             if (state.id !== action.id) {
                 return state
             }
-
+            
             return action.newElement;
 
             return {};
@@ -367,8 +367,6 @@ export const elements = (state = {}, action) => {
             return map(state, e => {
                 return element(e, action);
             })
-
-            return {};
 
         case ActionTypes.APPLY_STYLE:
             return map(state, e => {

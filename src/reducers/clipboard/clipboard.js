@@ -14,8 +14,10 @@ const clipboard = (state = initialState, action) => {
 
     switch (action.type) {
         case ActionTypes.SET_COPIED_STYLE:
-        case ActionTypes.SET_COPIED_ELEMENT:
             return {...state, copiedStyle: action.value};
+
+        case ActionTypes.SET_COPIED_ELEMENT:
+            return {...state, copiedElement: action.value};
 
         default:
             return state

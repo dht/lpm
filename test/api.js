@@ -1,11 +1,14 @@
 import expect from 'expect'
-import api from '../src/index';
+import api from '../src/actions/index';
 import reduxThunk from 'redux-thunk'
+import logger from './helpers/logger'
 import configureStore from 'redux-mock-store'
 import clean from './mocks/clean';
 import clipboardElement from './mocks/clipboardElement';
-const middlewares = [reduxThunk];
+const middlewares = [reduxThunk, logger];
 const mockStore = configureStore(middlewares)
+
+debugger;
 
 describe('thunks', function () {
 
@@ -106,14 +109,14 @@ describe('thunks', function () {
                     }, {elementType: 'PLACEHOLDER', id: 3, parent_id: 2, type: 'FLEX_SET_SELECTED_ELEMENT'}, {
                         data: {modeId: 0},
                         elementType: 'PLACEHOLDER',
-                        id: 3,
+                        id: 4,
                         parent_id: 2,
                         style: {backgroundSize: 'cover', flex: 1, order: 2},
                         type: 'FLEX_ADD_ELEMENT'
                     }, {
                         data: {modeId: 0},
                         elementType: 'PLACEHOLDER',
-                        id: 3,
+                        id: 5,
                         parent_id: 2,
                         style: {backgroundSize: 'cover', flex: 1, order: 3},
                         type: 'FLEX_ADD_ELEMENT'
@@ -126,7 +129,7 @@ describe('thunks', function () {
             });
     });
 
-    it('should run addVerticalView properly', function () {
+    it('should run addVerticalViewBySizes properly', function () {
         const store = mockStore(clean);
 
         return store.dispatch(api.addVerticalViewBySizes([50, 100, 150]))
@@ -157,14 +160,14 @@ describe('thunks', function () {
                     }, {elementType: 'PLACEHOLDER', id: 3, parent_id: 2, type: 'FLEX_SET_SELECTED_ELEMENT'}, {
                         data: {modeId: 0},
                         elementType: 'PLACEHOLDER',
-                        id: 3,
+                        id: 4,
                         parent_id: 2,
                         style: {height: '100px', order: 2},
                         type: 'FLEX_ADD_ELEMENT'
                     }, {
                         data: {modeId: 0},
                         elementType: 'PLACEHOLDER',
-                        id: 3,
+                        id: 5,
                         parent_id: 2,
                         style: {height: '150px', order: 3},
                         type: 'FLEX_ADD_ELEMENT'
@@ -208,7 +211,7 @@ describe('thunks', function () {
                     }, {elementType: 'PLACEHOLDER', id: 3, parent_id: 2, type: 'FLEX_SET_SELECTED_ELEMENT'}, {
                         data: {modeId: 0},
                         elementType: 'PLACEHOLDER',
-                        id: 3,
+                        id: 4,
                         parent_id: 2,
                         style: {flex: 1, order: 2},
                         type: 'FLEX_ADD_ELEMENT'
@@ -252,7 +255,7 @@ describe('thunks', function () {
                     }, {elementType: 'PLACEHOLDER', id: 3, parent_id: 2, type: 'FLEX_SET_SELECTED_ELEMENT'}, {
                         data: {modeId: 0},
                         elementType: 'PLACEHOLDER',
-                        id: 3,
+                        id: 4,
                         parent_id: 2,
                         style: {order: 2, width: '100px'},
                         type: 'FLEX_ADD_ELEMENT'
@@ -416,7 +419,7 @@ describe('thunks', function () {
                     }
                 },
                 elementType: 'VIEW',
-                id: 4,
+                id: 3,
                 parent_id: 0,
                 style: {
                     alignItems: 'stretch',
@@ -434,7 +437,7 @@ describe('thunks', function () {
                     content: 'Lorem ipsum',
                     modeId: 0,
                     vars: {r1: {flex: 'none', order: 1}, r2: {order: 1}, r3: {order: 1}, r4: {order: 1}}
-                }, elementType: 'TEXT', id: 5, parent_id: 4, style: {flex: 'none', order: 1}, type: 'FLEX_ADD_ELEMENT'
+                }, elementType: 'TEXT', id: 4, parent_id: 3, style: {flex: 'none', order: 1}, type: 'FLEX_ADD_ELEMENT'
             }, {
                 data: {
                     modeId: 0,
@@ -450,8 +453,8 @@ describe('thunks', function () {
                     }
                 },
                 elementType: 'IMAGE',
-                id: 6,
-                parent_id: 4,
+                id: 5,
+                parent_id: 3,
                 style: {
                     backgroundImage: 'url(\'https://rnbin.com/images/image.png\')',
                     backgroundSize: 'cover',
@@ -461,7 +464,7 @@ describe('thunks', function () {
                     width: '80px'
                 },
                 type: 'FLEX_ADD_ELEMENT'
-            }]
+            }, {elementType: 'IMAGE', id: 5, parent_id: 3, type: 'FLEX_SET_SELECTED_ELEMENT'}]
         )
     });
 
@@ -602,11 +605,11 @@ describe('thunks', function () {
             [{ids: ['2'], type: 'FLEX_REMOVE_ELEMENTS'}, {
                 data: {},
                 elementType: 'VIEW',
-                id: 4,
+                id: 3,
                 parent_id: 1,
                 style: {order: 1},
                 type: 'FLEX_ADD_ELEMENT'
-            }]
+            }, {elementType: 'VIEW', id: 3, parent_id: 1, type: 'FLEX_SET_SELECTED_ELEMENT'}]
         )
     });
 

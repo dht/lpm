@@ -1,6 +1,6 @@
 {
   "name": "lpm-core",
-  "version": "0.1.60",
+  "version": "0.1.70",
   "description": "Layout Package Manager Project",
   "main": "index.js",
   "module": "./index.js",
@@ -9,6 +9,7 @@
     "build": "babel src --out-dir dist",
     "start": "node server.js",
     "test": "export NODE_ENV=testing && mocha --compilers js:babel-register --recursive",
+    "test:break": "export NODE_ENV=testing && node --inspect --debug-brk  node_modules/mocha/bin/_mocha --compilers js:babel-register --recursive test/playground.js",
     "test:watch": "npm test -- --watch",
     "test:play": "export NODE_ENV=testing && mocha --compilers js:babel-register --recursive --grep play --watch"
   },

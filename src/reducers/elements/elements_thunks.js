@@ -83,19 +83,20 @@ const addVerticalView = (rows = 1) => {
             maxOrder = stateOperations.getMaxOrder(flexState),
             refreshAction;
 
-        //console.log('onAddVerticalView rows -> ', rows);
         let action = actions.addOrReplace(maxId + 1, selected_element_type, selected_element_id, ElementTypes.VIEW, parent_id, {
             order: maxOrder + 1,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'stretch'
         }, {modeId: modeId})
+
         let root_id = action.id;
 
         dispatch(action);
 
         for (let row = 0; row < parseInt(rows, 10); row++) {
-            action = actions.addElement(maxId + 1, ElementTypes.PLACEHOLDER, root_id, {
+            maxId++;
+            action = actions.addElement(maxId, ElementTypes.PLACEHOLDER, root_id, {
                 order: row + 1,
                 flex: 1,
                 backgroundSize: 'cover'
@@ -119,7 +120,6 @@ const addVerticalViewBySizes = (sizes) => {
             maxOrder = stateOperations.getMaxOrder(flexState),
             refreshAction;
 
-        //console.log('onAddVerticalView rows -> ', rows);
         let action = actions.addOrReplace(maxId + 1, selected_element_type, selected_element_id, ElementTypes.VIEW, parent_id, {
             order: maxOrder + 1,
             flexDirection: 'column',
@@ -127,6 +127,7 @@ const addVerticalViewBySizes = (sizes) => {
             display: 'flex',
             backgroundSize: 'cover',
         }, {modeId: modeId})
+
         let root_id = action.id;
 
         dispatch(action);
@@ -142,8 +143,8 @@ const addVerticalViewBySizes = (sizes) => {
                 style.height = size + 'px';
             }
 
-
-            action = actions.addElement(maxId + 1, ElementTypes.PLACEHOLDER, root_id, style, {modeId: modeId})
+            maxId++;
+            action = actions.addElement(maxId, ElementTypes.PLACEHOLDER, root_id, style, {modeId: modeId})
             dispatch(action);
 
             if (row === 0) {
@@ -172,12 +173,14 @@ const addHorizontalView = (columns = 1) => {
             alignItems: 'stretch',
             backgroundSize: 'cover',
         }, {modeId: modeId})
+
         let root_id = action.id;
 
         dispatch(action);
 
         for (let col = 0; col < parseInt(columns, 10); col++) {
-            action = actions.addElement(maxId + 1, ElementTypes.PLACEHOLDER, root_id, {
+            maxId++;
+            action = actions.addElement(maxId, ElementTypes.PLACEHOLDER, root_id, {
                 flex: 1,
                 order: col + 1
             }, {modeId: modeId})
@@ -222,7 +225,8 @@ const addHorizontalViewBySizes = (sizes) => {
                 style.width = size + 'px';
             }
 
-            action = actions.addElement(maxId + 1, ElementTypes.PLACEHOLDER, root_id, style, {modeId: modeId})
+            maxId++;
+            action = actions.addElement(maxId, ElementTypes.PLACEHOLDER, root_id, style, {modeId: modeId})
 
             dispatch(action);
 
@@ -327,7 +331,6 @@ const injectSnippet = (rootId, rootParentId, rootOrder, snippet) => {
         dispatch(actions.removeElements(ids));
 
         let maxId = treeOperations.getMaxId(getFlexState(getState()).elements.present);
-        maxId++;
 
         let snippetState = clone(snippet.state);
 
@@ -335,6 +338,8 @@ const injectSnippet = (rootId, rootParentId, rootOrder, snippet) => {
 
         let index = 0;
         let promises = [];
+
+        let selectAction;
 
         while (elementsToAddIds.length) {
 
@@ -359,7 +364,11 @@ const injectSnippet = (rootId, rootParentId, rootOrder, snippet) => {
             reIndexMap[id] = action.id;
 
             index++;
+
+            selectAction = selection_actions.setSelectedElement(maxId, element.parent_id, element.elementType);
         }
+
+        dispatch(selectAction);
 
         return Promise.all(promises)
             .then(() => {
