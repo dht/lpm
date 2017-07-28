@@ -1,5 +1,5 @@
 import expect from 'expect'
-import api from '../src/actions/index';
+import api from '../src';
 import reduxThunk from 'redux-thunk'
 import logger from './helpers/logger'
 import configureStore from 'redux-mock-store'
