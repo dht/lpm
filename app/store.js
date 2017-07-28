@@ -3,7 +3,7 @@ import {createStore} from 'redux'
 import {combineReducers} from 'redux'
 import {routerReducer} from 'react-router-redux'
 
-import reducers from '../src/actions/index';
+import reducers from '../src/reducers';
 
 const reduxApp = combineReducers({
     elements: reducers.elements,
