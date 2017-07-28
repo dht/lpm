@@ -358,9 +358,7 @@ export const elements = (state = {}, action) => {
                 order,
             });
 
-            if (action.data.content) {
-                newElement.data.content = action.data.content;
-            }
+            newElement.data = {...newElement.data, ...action.data};
 
             action.newElement = newElement;
 

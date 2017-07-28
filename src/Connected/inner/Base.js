@@ -29,6 +29,7 @@ const Base = (props) => {
             elements={props.elements}
             subscribe={props.subscribe}
             unsubscribe={props.unsubscribe}
+            params={props.params}
         />)}
     </div>
 }

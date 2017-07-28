@@ -56,8 +56,11 @@ export default {
     },
     "3" : {
         "data" : {
-            "snippetId":"b76d9d78",
+            "snippetId":"a9ee200e",
             "vars" : {
+                "params": {
+                    "title": "roger wow",
+                },
                 "r1" : {
                     "height" : "50px",
                     "order" : 1,
@@ -85,8 +88,11 @@ export default {
     },
     "4" : {
         "data" : {
-            "snippetId":"76b42d81",
+            "snippetId":"a9ee200e",
             "vars" : {
+                "params": {
+                    "title": "roger this",
+                },
                 "r1" : {
                     "height" : "50px",
                     "order" : 1,
@@ -114,8 +120,11 @@ export default {
     },
     "5" : {
         "data" : {
-            "snippetId":"4c2c6e1f",
+            "snippetId":"a9ee200e",
             "vars" : {
+                "params": {
+                    "title": "roger that",
+                },
                 "r1" : {
                     "height" : "50px",
                     "order" : 1,

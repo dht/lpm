@@ -3,8 +3,14 @@ const sanitizer = require('sanitizer');
 import Base from './Base';
 
 const Text = (props) => {
-    const {content} = props,
-        text = sanitizer.sanitize(content);
+    let {params = {}, data, content} = props,
+        {dataField} = data || {};
+
+    if (dataField && params[dataField]) {
+        content = params[dataField];
+    }
+
+    const text = sanitizer.sanitize(content);
 
     return <Base {...props}>
         <span className="inner" dangerouslySetInnerHTML={{__html: text}}></span>

@@ -24,6 +24,7 @@ const mapStateToProps = (state, ownProps) => {
         childIds: element.childIds,
         selected: false,
         selectedParent: false,
+        params: ownProps.params,
     }
 }
 

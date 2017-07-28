@@ -37,7 +37,7 @@ export default class snippet extends React.Component {
     }
 
     render() {
-        const {subscribe, unsubscribe} = this.props;
+        const {subscribe, unsubscribe, params} = this.props;
         const {elements} = this.state;
 
         return (
@@ -47,6 +47,7 @@ export default class snippet extends React.Component {
                     id={1}
                     onElementClick={() => {}}
                     onElementDblClick={() => {}}
+                    params={params}
                     subscribe={subscribe}
                     unsubscribe={unsubscribe}
                 />

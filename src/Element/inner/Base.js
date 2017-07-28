@@ -33,6 +33,7 @@ const Base = (props) => {
             onElementDblClick={props.onElementDblClick}
             subscribe={props.subscribe}
             unsubscribe={props.unsubscribe}
+            params={props.params}
         />)}
     </div>
 }
